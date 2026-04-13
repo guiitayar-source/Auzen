@@ -96,10 +96,10 @@
             color: var(--primary-blue);
         }
 
-        /* Seção Hero (Banner Principal estilo céu estrelado/gradiente) */
+        /* Seção Hero (Banner Principal) */
         .hero {
             text-align: center;
-            padding: 180px 20px 250px 20px; /* Espaço extra embaixo para o documento sobrepor */
+            padding: 180px 20px 250px 20px; 
             background: linear-gradient(180deg, var(--dark-navy) 0%, var(--primary-blue) 60%, #9b90e5 100%);
             color: var(--cream);
             position: relative;
@@ -146,7 +146,7 @@
             background-color: var(--mint-green);
         }
 
-        /* Seção Quem Somos (Inspirado na carta jogada da referência) */
+        /* Seção Quem Somos */
         .about-section {
             background-color: var(--cream);
             padding: 0 20px 80px 20px;
@@ -159,7 +159,7 @@
             position: relative;
             max-width: 800px;
             width: 100%;
-            margin-top: -150px; /* Puxa a carta para cima do fundo azul, como na foto */
+            margin-top: -150px; 
             display: flex;
             justify-content: center;
         }
@@ -170,7 +170,7 @@
             width: 100%;
             max-width: 500px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            transform: rotate(-2deg); /* Carta inclinada */
+            transform: rotate(-2deg); 
             border-radius: 4px;
             position: relative;
             z-index: 2;
@@ -200,7 +200,7 @@
             padding-top: 15px;
         }
 
-        /* Estilo das Fotos "Polaroid" da referência */
+        /* Estilo das Fotos "Polaroid" */
         .polaroid {
             background: white;
             padding: 10px 10px 35px 10px;
@@ -213,7 +213,7 @@
             width: 100%;
             height: auto;
             display: block;
-            background-color: var(--light-lilac); /* placeholder color */
+            background-color: var(--light-lilac); 
             min-height: 140px;
         }
         .polaroid-1 {
@@ -269,7 +269,7 @@
             color: var(--primary-blue);
         }
 
-        /* Seção Depoimentos (NOVA) */
+        /* Seção Depoimentos */
         .testimonials {
             background-color: var(--mint-green);
             padding: 80px 5%;
@@ -362,7 +362,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         
-        /* Botões Específicos */
         .whatsapp-btn { background-color: #25D366; }
         .email-btn { background-color: var(--primary-blue); }
         .maps-btn { background-color: var(--dark-navy); }
@@ -382,20 +381,63 @@
             font-size: 14px;
         }
 
-        /* Responsividade */
+        /* =========================================
+           RESPONSIVIDADE (A CORREÇÃO ESTÁ AQUI)
+           ========================================= */
         @media (max-width: 850px) {
+            
+            /* Ajuste do Menu Flutuante */
+            .header-wrapper {
+                padding: 10px;
+                top: 10px;
+            }
             header {
                 flex-direction: column;
-                gap: 10px;
-                border-radius: 20px;
-                padding: 15px;
+                gap: 12px;
+                border-radius: 15px; /* Bordas menos arredondadas para parecer um cartãozinho */
+                padding: 15px 10px;
             }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            .hero { padding-top: 150px; }
-            .hero h1 { font-size: 40px; }
-            .polaroid { display: none; } /* Esconde as polaroids no celular para não quebrar a tela */
-            .document-card { transform: none; padding: 30px 20px; }
-            .paper-composition { margin-top: -80px; }
+            nav ul { 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                gap: 12px;
+            }
+            nav ul li a {
+                font-size: 13px; /* Fonte levemente menor para caber melhor */
+            }
+
+            /* Ajustes do Banner */
+            .hero { padding-top: 160px; padding-bottom: 150px; }
+            .hero h1 { font-size: 38px; }
+            
+            /* Ajuste das Polaroides e Documento */
+            .paper-composition { 
+                flex-direction: column; /* Empilha os elementos */
+                align-items: center;
+                margin-top: -60px; 
+            }
+            .document-card { 
+                transform: none; /* Tira a inclinação para facilitar a leitura na tela pequena */
+                padding: 30px 20px; 
+                width: 90%; 
+                box-sizing: border-box;
+                z-index: 2;
+            }
+            .polaroid { 
+                position: relative; /* Volta as fotos para o fluxo normal do site */
+                display: block; /* Garante que elas apareçam */
+                z-index: 3;
+            }
+            .polaroid-1 {
+                transform: rotate(-3deg);
+                margin-bottom: -20px; /* Faz a foto invadir um pouquinho o topo do documento */
+                left: 0; bottom: 0;
+            }
+            .polaroid-2 {
+                transform: rotate(3deg);
+                margin-top: -20px; /* Faz a foto invadir um pouquinho a base do documento */
+                top: 0; right: 0;
+            }
         }
     </style>
 </head>
@@ -506,7 +548,7 @@
             <p style="color: #555; margin-bottom: 25px;">Agende uma avaliação gratuita.</p>
             
             <a href="https://wa.me/5515997878345" class="action-btn whatsapp-btn" target="_blank">💬 WhatsApp: (15) 99787-8345</a>
-            <a href="https://www.instagram.com/auzenespacopet?igsh=djRkZzNlemRneG91" class="action-btn instagram-btn" target="_blank">📸 Siga no Instagram</a>
+            <a href="https://instagram.com/SEU_USUARIO" class="action-btn instagram-btn" target="_blank">📸 Siga no Instagram</a>
             <a href="mailto:auzenespaçoparaanimais@gmail.com" class="action-btn email-btn">✉️ Enviar E-mail</a>
         </div>
 
