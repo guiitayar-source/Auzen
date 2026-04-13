@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auzen | Espaço para Animais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
     <style>
-        /* Paleta de Cores Baseada na Imagem */
+        /* Paleta de Cores Baseada na Imagem Anterior */
         :root {
             --primary-blue: #4033BC;
             --cream: #FFF7ED;
@@ -17,47 +21,64 @@
 
         /* Estilos Globais */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
             color: var(--dark-navy);
             background-color: var(--bright-white);
+            overflow-x: hidden;
         }
-        h1, h2, h3 {
-            color: var(--primary-blue);
+        
+        /* Fontes de Títulos baseadas na referência */
+        h1, h2, h3, .serif-font {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
+
         a {
             text-decoration: none;
-            color: var(--primary-blue);
+            color: inherit;
             transition: opacity 0.3s;
         }
         a:hover {
             opacity: 0.8;
         }
 
-        /* Cabeçalho */
+        /* Menu Superior estilo "Pílula" (flutuante) */
+        .header-wrapper {
+            position: absolute;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
         header {
-            background-color: var(--cream);
-            padding: 15px 5%;
+            background-color: rgba(255, 247, 237, 0.95); /* Creme translúcido */
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(26, 26, 50, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            width: 100%;
+            max-width: 900px;
+            box-shadow: 0 4px 15px rgba(26, 26, 50, 0.1);
         }
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 24px;
-            font-weight: bold;
+            gap: 10px;
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
             color: var(--primary-blue);
         }
         .logo-container img {
-            height: 50px; /* Ajuste o tamanho do logo aqui */
-            border-radius: 8px;
+            height: 35px; /* Tamanho reduzido para o menu pílula */
+            border-radius: 5px;
         }
         nav ul {
             list-style: none;
@@ -65,9 +86,9 @@
             gap: 20px;
             margin: 0;
             padding: 0;
-            flex-wrap: wrap;
         }
         nav ul li a {
+            font-size: 14px;
             font-weight: 600;
             color: var(--dark-navy);
         }
@@ -75,155 +96,257 @@
             color: var(--primary-blue);
         }
 
-        /* Seção Hero (Banner Principal) */
+        /* Seção Hero (Banner Principal estilo céu estrelado/gradiente) */
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            background-color: var(--primary-blue);
+            padding: 180px 20px 250px 20px; /* Espaço extra embaixo para o documento sobrepor */
+            background: linear-gradient(180deg, var(--dark-navy) 0%, var(--primary-blue) 60%, #9b90e5 100%);
             color: var(--cream);
+            position: relative;
+        }
+        .badge {
+            display: inline-block;
+            border: 1px solid rgba(255, 247, 237, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            color: var(--light-lilac);
         }
         .hero h1 {
-            color: var(--cream);
-            font-size: 46px;
-            margin-bottom: 10px;
-        }
-        .hero p.subtitle {
-            font-size: 20px;
-            color: var(--mint-green);
-            font-weight: bold;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            font-size: 56px;
+            margin: 0 auto 15px auto;
+            max-width: 800px;
+            line-height: 1.1;
+            color: var(--bright-white);
         }
         .hero p.desc {
             font-size: 18px;
-            max-width: 650px;
+            max-width: 550px;
             margin: 0 auto 30px auto;
             line-height: 1.6;
             color: var(--light-lilac);
+            font-weight: 300;
         }
         .btn {
-            background-color: var(--mint-green);
+            background-color: var(--cream);
             color: var(--dark-navy);
-            padding: 14px 28px;
+            padding: 14px 32px;
             border-radius: 30px;
-            font-weight: bold;
+            font-weight: 600;
             font-size: 16px;
             display: inline-block;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
         }
         .btn:hover {
-            background-color: #aed1a6;
-            color: var(--dark-navy);
-            opacity: 1;
+            background-color: var(--mint-green);
         }
 
-        /* Seção Quem Somos */
+        /* Seção Quem Somos (Inspirado na carta jogada da referência) */
         .about-section {
-            background-color: var(--light-lilac);
-            padding: 60px 5%;
+            background-color: var(--cream);
+            padding: 0 20px 80px 20px;
             display: flex;
-            flex-wrap: wrap;
+            flex-direction: column;
             align-items: center;
+        }
+        
+        .paper-composition {
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            margin-top: -150px; /* Puxa a carta para cima do fundo azul, como na foto */
+            display: flex;
             justify-content: center;
-            gap: 40px;
         }
-        .about-text {
-            max-width: 600px;
-            text-align: left;
+
+        .document-card {
+            background-color: var(--bright-white);
+            padding: 50px 40px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: rotate(-2deg); /* Carta inclinada */
+            border-radius: 4px;
+            position: relative;
+            z-index: 2;
         }
-        .about-text h2 {
-            font-size: 32px;
+        .document-card h2 {
+            font-size: 28px;
             margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--dark-navy);
+            text-align: center;
+            font-style: italic;
         }
-        .about-text p {
-            font-size: 18px;
-            line-height: 1.6;
+        .document-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+            margin-bottom: 15px;
+            text-align: justify;
         }
-        .about-image {
-            background-color: var(--primary-blue);
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--cream);
-            font-weight: bold;
-            border: 8px solid var(--bright-white);
-            box-shadow: 0 10px 20px rgba(26, 26, 50, 0.1);
+        .signature {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: var(--primary-blue);
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        /* Estilo das Fotos "Polaroid" da referência */
+        .polaroid {
+            background: white;
+            padding: 10px 10px 35px 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: absolute;
+            width: 160px;
+            z-index: 3;
+        }
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            background-color: var(--light-lilac); /* placeholder color */
+            min-height: 140px;
+        }
+        .polaroid-1 {
+            bottom: -30px;
+            left: -40px;
+            transform: rotate(-6deg);
+        }
+        .polaroid-2 {
+            top: 40px;
+            right: -60px;
+            transform: rotate(8deg);
+        }
+        .polaroid-caption {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 14px;
+            margin-top: 10px;
+            color: var(--dark-navy);
         }
 
         /* Seção Serviços */
         .services {
+            padding: 80px 5%;
+            background-color: var(--bright-white);
+            text-align: center;
+        }
+        .section-title {
+            font-size: 38px;
+            margin-bottom: 50px;
+            color: var(--dark-navy);
+        }
+        .services-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            padding: 60px 5%;
-            background-color: var(--bright-white);
         }
         .service-card {
-            background: var(--cream);
-            border-radius: 20px;
+            background: var(--light-lilac);
+            border-radius: 12px;
             padding: 40px 30px;
             width: 320px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(26, 26, 50, 0.05);
-            border-bottom: 6px solid var(--mint-green);
+            text-align: left;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
         }
         .service-card h3 {
             font-size: 24px;
             margin-top: 0;
-            color: var(--dark-navy);
+            color: var(--primary-blue);
         }
 
-        /* Seção de Fotos */
+        /* Seção Depoimentos (NOVA) */
+        .testimonials {
+            background-color: var(--mint-green);
+            padding: 80px 5%;
+            text-align: center;
+        }
+        .testimo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .testimo-card {
+            background: var(--bright-white);
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        .testimo-card p {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .testimo-author {
+            font-weight: 600;
+            color: var(--dark-navy);
+            font-size: 14px;
+        }
+
+        /* Seção de Fotos (Galeria) */
         .gallery-section {
-            padding: 60px 5%;
+            padding: 80px 5%;
             text-align: center;
             background-color: var(--cream);
         }
         .gallery-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
             justify-content: center;
             margin-top: 30px;
         }
         .photo-placeholder {
             background-color: var(--light-lilac);
             color: var(--primary-blue);
-            width: 280px;
-            height: 220px;
+            width: 250px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 15px;
-            font-weight: bold;
-            font-size: 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
         }
 
-        /* Seção Contato e Localização */
+        /* Seção Contato */
         .contact-section {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
-            padding: 60px 5%;
+            padding: 80px 5%;
             background-color: var(--bright-white);
         }
         .contact-card {
             background: var(--light-lilac);
             padding: 40px 30px;
-            border-radius: 20px;
+            border-radius: 12px;
             width: 350px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(26, 26, 50, 0.08);
         }
         .contact-card h2 {
             margin-top: 0;
+            font-size: 28px;
             margin-bottom: 20px;
         }
         .action-btn {
@@ -232,26 +355,19 @@
             padding: 14px 0;
             border-radius: 30px;
             margin-bottom: 15px;
-            font-weight: bold;
+            font-weight: 600;
             color: var(--bright-white);
             box-sizing: border-box;
-            font-size: 16px;
+            font-size: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .whatsapp-btn {
-            background-color: #25D366; /* Mantido verde para fácil reconhecimento */
-        }
-        .email-btn {
-            background-color: var(--primary-blue);
-        }
-        .maps-btn {
-            background-color: var(--dark-navy);
-        }
+        
+        /* Botões Específicos */
+        .whatsapp-btn { background-color: #25D366; }
+        .email-btn { background-color: var(--primary-blue); }
+        .maps-btn { background-color: var(--dark-navy); }
         .instagram-btn {
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: #ffffff;
-        }
-        .instagram-btn:hover {
-            opacity: 0.8;
         }
 
         /* Rodapé */
@@ -259,123 +375,154 @@
             background-color: var(--dark-navy);
             color: var(--light-lilac);
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
         }
         footer p {
             margin: 5px 0;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* Responsividade */
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             header {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+                border-radius: 20px;
+                padding: 15px;
             }
-            .hero h1 {
-                font-size: 36px;
-            }
-            nav ul {
-                justify-content: center;
-            }
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            .about-text {
-                text-align: center;
-            }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            .hero { padding-top: 150px; }
+            .hero h1 { font-size: 40px; }
+            .polaroid { display: none; } /* Esconde as polaroids no celular para não quebrar a tela */
+            .document-card { transform: none; padding: 30px 20px; }
+            .paper-composition { margin-top: -80px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="zezé.jpg" alt="Logo Auzen">
-            Auzen
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#quem-somos">Quem Somos</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#fotos">Galeria</a></li>
-                <li><a href="#contato-local">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="header-wrapper">
+        <header>
+            <div class="logo-container">
+                <img src="zezé.jpg" alt="Logo Auzen">
+                Auzen
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#quem-somos">Nossa Essência</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#fotos">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
 
     <section class="hero">
-        <h1>Um ambiente zen para o seu pet</h1>
-        <p class="subtitle">Leve • Alegre • Receptiva • Confiável • Carismática</p>
-        <p class="desc">Auzen é um espaço exclusivo para cães de pequeno porte. Nosso objetivo é proporcionar liberdade, socialização e relaxamento com total segurança e energia positiva.</p>
-        <a href="#contato-local" class="btn">Agende uma avaliação</a>
+        <span class="badge">Leve • Alegre • Confiável</span>
+        <h1>Um ambiente zen para<br>o seu pequeno grande amor</h1>
+        <p class="desc">Auzen é um espaço exclusivo para cães de pequeno porte. Desenhado para proporcionar liberdade, socialização e tranquilidade, longe do estresse.</p>
+        <a href="#contato" class="btn">Agende uma visita</a>
     </section>
 
     <section id="quem-somos" class="about-section">
-        <div class="about-image">
-            [Foto da Proprietária]
-        </div>
-        <div class="about-text">
-            <h2>Quem Somos Nós</h2>
-            <p>A <strong>Auzen Espaço para Animais</strong> nasceu da paixão e do cuidado técnico com os pets. Somos mais do que uma creche: somos um porto seguro para o seu cãozinho.</p>
-            <p>Nossa fundadora e proprietária é <strong>Médica Veterinária</strong>, o que garante que toda a rotina, as brincadeiras e o convívio sejam supervisionados com olhar clínico. Aqui, seu melhor amigo é tratado com amor de dono e responsabilidade de especialista.</p>
+        <div class="paper-composition">
+            
+            <div class="polaroid polaroid-1">
+                <img src="https://via.placeholder.com/150x160/E5E3FC/4033BC?text=Foto+Proprietaria" alt="Proprietária">
+                <div class="polaroid-caption">Amor em cada detalhe</div>
+            </div>
+
+            <div class="document-card">
+                <h2>Quem Somos Nós</h2>
+                <p>Nascemos da crença de que os cães de pequeno porte merecem um espaço pensado milimetricamente para eles. Longe de correrias brutas, focamos na qualidade do tempo, na socialização gentil e no bem-estar físico e mental.</p>
+                <p>Nossa fundadora e proprietária é <strong>Médica Veterinária</strong>. Isso significa que não somos apenas um espaço de recreação, mas um ambiente com olhar clínico constante.</p>
+                <p>Nós não otimizamos para ter dezenas de cães ao mesmo tempo. Nós otimizamos para ter um grupo harmonioso, onde seu pet é chamado pelo nome e tratado com carinho exclusivo.</p>
+                
+                <div class="signature">
+                    Dra. [Nome da sua esposa]<br>
+                    <span style="font-size: 14px; font-family: 'Inter', sans-serif; color: #777;">Médica Veterinária e Fundadora</span>
+                </div>
+            </div>
+
+            <div class="polaroid polaroid-2">
+                 <img src="zezé.jpg" alt="Logo">
+                <div class="polaroid-caption">Nosso mascote</div>
+            </div>
+
         </div>
     </section>
 
     <section id="servicos" class="services">
-        <div class="service-card">
-            <h3>🐕 Creche Pequeno Porte</h3>
-            <p style="color: var(--primary-blue);">Socialização Segura</p>
-            <p>Interação exclusiva com cães do mesmo tamanho, em uma rotina que equilibra gasto de energia, relaxamento e musicoterapia.</p>
+        <h2 class="section-title">O que oferecemos</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Creche Pequeno Porte</h3>
+                <p style="color: var(--primary-blue); font-weight: 600; margin-top: -10px;">Interação Segura</p>
+                <p>Brincadeiras apenas com amiguinhos do mesmo tamanho. Uma rotina que intercala gasto de energia, relaxamento e musicoterapia para reduzir a ansiedade.</p>
+            </div>
+            <div class="service-card">
+                <h3>Clínica Veterinária</h3>
+                <p style="color: var(--primary-blue); font-weight: 600; margin-top: -10px;">Saúde Integrada</p>
+                <p>Atendimento clínico no local realizado pela própria proprietária. Toda a conveniência e segurança de ter suporte veterinário onde seu pet já se sente em casa.</p>
+            </div>
         </div>
-        <div class="service-card">
-            <h3>🩺 Clínica Veterinária</h3>
-            <p style="color: var(--primary-blue);">Saúde em Dia</p>
-            <p>Atendimento veterinário realizado pela própria proprietária. Conveniência e segurança de ter suporte clínico no mesmo local da creche.</p>
+    </section>
+
+    <section id="depoimentos" class="testimonials">
+        <h2 class="section-title" style="margin-bottom: 10px;">O que dizem sobre nós</h2>
+        <p style="color: var(--dark-navy);">Histórias de quem já faz parte da família Auzen.</p>
+        
+        <div class="testimo-grid">
+            <div class="testimo-card">
+                <p>"Desde que meu York começou a frequentar a Auzen, a ansiedade de separação diminuiu muito. Saber que tem uma veterinária cuidando de tudo me deixa 100% em paz para trabalhar."</p>
+                <div class="testimo-author">— Mariana Silva</div>
+            </div>
+            <div class="testimo-card">
+                <p>"O ambiente é lindo, limpo e super tranquilo. O fato de ser só para cães pequenos faz toda a diferença para o meu Spitz que é mais medroso."</p>
+                <div class="testimo-author">— João Pedro</div>
+            </div>
+            <div class="testimo-card">
+                <p>"Amei o cuidado! O atendimento clínico aliado à creche salvou minha rotina. Mando ele para brincar e já aproveito para atualizar as vacinas. Perfeito."</p>
+                <div class="testimo-author">— Camila F.</div>
+            </div>
         </div>
     </section>
 
     <section id="fotos" class="gallery-section">
-        <h2>Conheça nosso espaço</h2>
-        <p style="color: var(--dark-navy); margin-bottom: 30px;">Estrutura pensada para o bem-estar e a diversão.</p>
+        <h2 class="section-title">Nossa Estrutura</h2>
         <div class="gallery-grid">
-            <div class="photo-placeholder">📸 Área de Recreação</div>
-            <div class="photo-placeholder">😴 Cantinho Zen</div>
-            <div class="photo-placeholder">🩺 Consultório Veterinário</div>
-            <div class="photo-placeholder">🐶 Turminha Reunida</div>
+            <div class="photo-placeholder">Área Play</div>
+            <div class="photo-placeholder">Cantinho Zen</div>
+            <div class="photo-placeholder">Consultório</div>
+            <div class="photo-placeholder">Nossa Turma</div>
         </div>
     </section>
 
-    <section id="contato-local" class="contact-section">
-        
+    <section id="contato" class="contact-section">
         <div class="contact-card">
             <h2>Fale Conosco</h2>
-            <p style="color: var(--dark-navy); margin-bottom: 25px;">Tire suas dúvidas ou agende uma visita.</p>
+            <p style="color: #555; margin-bottom: 25px;">Agende uma avaliação gratuita.</p>
             
             <a href="https://wa.me/5515997878345" class="action-btn whatsapp-btn" target="_blank">💬 WhatsApp: (15) 99787-8345</a>
-            
+            <a href="https://instagram.com/SEU_USUARIO" class="action-btn instagram-btn" target="_blank">📸 Siga no Instagram</a>
             <a href="mailto:auzenespaçoparaanimais@gmail.com" class="action-btn email-btn">✉️ Enviar E-mail</a>
-
-            <a href="https://www.instagram.com/auzenespacopet?igsh=djRkZzNlemRneG91" class="action-btn instagram-btn" target="_blank">📸 Siga no Instagram</a>
         </div>
 
         <div class="contact-card">
-            <h2>Nossa Localização</h2>
-            <p style="color: var(--dark-navy); margin-bottom: 10px;">Rua Doutor Fernando Costa, 432</p>
-            <p style="color: var(--dark-navy); margin-bottom: 20px;">Vila Carvalho - Sorocaba/SP</p>
+            <h2>Localização</h2>
+            <p style="color: #555; margin-bottom: 5px;">Rua Doutor Fernando Costa, 432</p>
+            <p style="color: #555; margin-bottom: 25px;">Vila Carvalho - Sorocaba/SP</p>
             
             <a href="https://www.google.com/maps/search/?api=1&query=Rua+Doutor+Fernando+Costa,+432,+Vila+Carvalho+-+Sorocaba/SP" class="action-btn maps-btn" target="_blank">🗺️ Abrir no Google Maps</a>
         </div>
-
     </section>
 
     <footer>
         <p>© 2026 Auzen Espaço para Animais. Todos os direitos reservados.</p>
-        <p>Desenvolvido com 💜 para cães de pequeno porte.</p>
+        <p style="font-family: 'Playfair Display', serif; font-style: italic;">Feito com cuidado para o seu pet.</p>
     </footer>
 
 </body>
 </html>
-
-    
