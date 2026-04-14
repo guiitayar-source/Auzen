@@ -85,7 +85,7 @@
         nav ul li a { text-decoration: none; color: var(--navy); font-size: 0.9rem; font-weight: 600; transition: var(--transition); }
         nav ul li a:hover { color: var(--primary-blue); }
 
-        /* 2. Hero Section (Degradê de cima pra baixo fundindo com o Creme) */
+        /* 2. Hero Section */
         .hero {
             min-height: 100vh;
             max-width: 100%;
@@ -95,7 +95,7 @@
             justify-content: center;
             text-align: center;
             color: white;
-            padding: 120px 20px 200px 20px; /* Padding bottom maior para o papel sobrepor */
+            padding: 120px 20px 200px 20px; 
             position: relative;
         }
 
@@ -116,7 +116,7 @@
         .hero-content h1 { color: var(--white); font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; line-height: 1.1; max-width: 900px; }
         .hero-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; color: var(--lilac); font-weight: 300; }
 
-        /* 3. Sobre Nós (Editorial: Papel Inclinado + Polaroids) */
+        /* 3. Sobre Nós */
         .about-editorial {
             padding: 0 20px 100px 20px;
             display: flex;
@@ -128,7 +128,7 @@
             position: relative;
             max-width: 800px;
             width: 100%;
-            margin-top: -180px; /* Puxa o papel para cima do banner azul */
+            margin-top: -180px; 
             display: flex;
             justify-content: center;
             z-index: 2;
@@ -140,7 +140,7 @@
             width: 100%;
             max-width: 550px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transform: rotate(-2deg); /* Inclinação do papel */
+            transform: rotate(-2deg); 
             position: relative;
             z-index: 2;
             border-radius: 4px;
@@ -190,7 +190,7 @@
         .step-number { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary-blue); opacity: 0.3; margin-bottom: 10px; display: block; }
 
         /* 5. Serviços */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
         .service-card { background: white; padding: 40px; border-radius: 30px; transition: var(--transition); border: 1px solid transparent; }
         .service-card:hover { transform: translateY(-10px); border-color: var(--lilac); box-shadow: var(--shadow-soft); }
         .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
@@ -206,8 +206,47 @@
         /* 8. Galeria */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 50px; }
         .gallery-item { height: 250px; border-radius: 15px; overflow: hidden; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
-        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); cursor: pointer; }
+        .gallery-item:hover img { transform: scale(1.05); }
+
+        /* Janela Modal (Efeito de ampliação da foto) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 50, 0.85); /* Cor Navy com transparência */
+            backdrop-filter: blur(5px);
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+        @keyframes zoomIn {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: var(--white);
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 2001;
+        }
+        .close-modal:hover { color: var(--mint); }
 
         /* 9. Rodapé */
         footer { background: var(--navy); color: white; padding: 80px 20px 40px; border-top-left-radius: 80px; border-top-right-radius: 80px; margin-top: 100px; }
@@ -316,7 +355,7 @@
                 <p>Nós não otimizamos para ter dezenas de cães ao mesmo tempo. Nós otimizamos para ter um grupo harmonioso, onde seu pet é chamado pelo nome e tratado com carinho exclusivo.</p>
                 
                 <div class="signature">
-                    Dra. Proprietária<br>
+                    Dra. Ana Lúcia Bonilha Scomparim Balera<br>
                     <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #777;">Médica Veterinária e Fundadora</span>
                 </div>
             </div>
@@ -364,6 +403,11 @@
                 <p>Consultas e orientações de saúde realizadas no local pela Dra. proprietária do espaço.</p>
             </div>
             <div class="service-card">
+                <span class="icon">🛏️</span>
+                <h3>Hotel Pet</h3>
+                <p>Hospedagem acolhedora com supervisão veterinária, para que seu pequeno durma tranquilo enquanto você viaja.</p>
+            </div>
+            <div class="service-card">
                 <span class="icon">📷</span>
                 <h3>Relatórios Diários</h3>
                 <p>Trabalhe tranquilo acompanhando o dia do seu pet através de fotos e vídeos enviados para você.</p>
@@ -392,48 +436,53 @@
     <section>
         <h2 style="text-align: center;">Nossa Estrutura</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="auzen.jpeg" alt="Foto Auzen"></div>
-            <div class="gallery-item"><img src="auzen1.jpeg" alt="Foto Auzen 1"></div>
-            <div class="gallery-item"><img src="auzen2.jpeg" alt="Foto Auzen 2"></div>
-            <div class="gallery-item"><img src="auzen3.jpeg" alt="Foto Auzen 3"></div>
-            <div class="gallery-item"><img src="auzen4.jpeg" alt="Foto Auzen 4"></div>
-            <div class="gallery-item"><img src="auzen5.jpeg" alt="Foto Auzen 5"></div>
-            <div class="gallery-item"><img src="auzen6.jpeg" alt="Foto Auzen 6"></div>
-            <div class="gallery-item"><img src="auzen7.jpeg" alt="Foto Auzen 7"></div>
-            <div class="gallery-item"><img src="auzen8.jpeg" alt="Foto Auzen 8"></div>
-            <div class="gallery-item"><img src="auzen9.jpeg" alt="Foto Auzen 9"></div>
-            <div class="gallery-item"><img src="auzen10.jpeg" alt="Foto Auzen 10"></div>
-            <div class="gallery-item"><img src="auzen11.jpeg" alt="Foto Auzen 11"></div>
-            <div class="gallery-item"><img src="auzen12.jpeg" alt="Foto Auzen 12"></div>
-            <div class="gallery-item"><img src="auzen13.jpeg" alt="Foto Auzen 13"></div>
-            <div class="gallery-item"><img src="auzen14.jpeg" alt="Foto Auzen 14"></div>
-            <div class="gallery-item"><img src="auzen15.jpeg" alt="Foto Auzen 15"></div>
-            <div class="gallery-item"><img src="auzen16.jpeg" alt="Foto Auzen 16"></div>
-            <div class="gallery-item"><img src="auzen17.jpeg" alt="Foto Auzen 17"></div>
-            <div class="gallery-item"><img src="auzen18.jpeg" alt="Foto Auzen 18"></div>
-            <div class="gallery-item"><img src="auzen19.jpeg" alt="Foto Auzen 19"></div>
-            <div class="gallery-item"><img src="auzen20.jpeg" alt="Foto Auzen 20"></div>
-            <div class="gallery-item"><img src="auzen21.jpeg" alt="Foto Auzen 21"></div>
-            <div class="gallery-item"><img src="auzen22.jpeg" alt="Foto Auzen 22"></div>
-            <div class="gallery-item"><img src="auzen23.jpeg" alt="Foto Auzen 23"></div>
-            <div class="gallery-item"><img src="auzen24.jpeg" alt="Foto Auzen 24"></div>
-            <div class="gallery-item"><img src="auzen25.jpeg" alt="Foto Auzen 25"></div>
-            <div class="gallery-item"><img src="auzen26.jpeg" alt="Foto Auzen 26"></div>
-            <div class="gallery-item"><img src="auzen27.jpeg" alt="Foto Auzen 27"></div>
-            <div class="gallery-item"><img src="auzen28.jpeg" alt="Foto Auzen 28"></div>
-            <div class="gallery-item"><img src="auzen29.jpeg" alt="Foto Auzen 29"></div>
-            <div class="gallery-item"><img src="auzen30.jpeg" alt="Foto Auzen 30"></div>
-            <div class="gallery-item"><img src="auzen31.jpeg" alt="Foto Auzen 31"></div>
-            <div class="gallery-item"><img src="auzen32.jpeg" alt="Foto Auzen 32"></div>
-            <div class="gallery-item"><img src="auzen33.jpeg" alt="Foto Auzen 33"></div>
-            <div class="gallery-item"><img src="auzen34.jpeg" alt="Foto Auzen 34"></div>
-            <div class="gallery-item"><img src="auzen35.jpeg" alt="Foto Auzen 35"></div>
-            <div class="gallery-item"><img src="auzen36.jpeg" alt="Foto Auzen 36"></div>
-            <div class="gallery-item"><img src="auzen37.jpeg" alt="Foto Auzen 37"></div>
-            <div class="gallery-item"><img src="auzen38.jpeg" alt="Foto Auzen 38"></div>
-            <div class="gallery-item"><img src="dostozen.jpeg" alt="Foto Dostozen"></div>
+            <div class="gallery-item"><img src="auzen.jpeg" alt="Foto Auzen" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen1.jpeg" alt="Foto Auzen 1" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen2.jpeg" alt="Foto Auzen 2" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen3.jpeg" alt="Foto Auzen 3" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen4.jpeg" alt="Foto Auzen 4" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen5.jpeg" alt="Foto Auzen 5" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen6.jpeg" alt="Foto Auzen 6" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen7.jpeg" alt="Foto Auzen 7" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen8.jpeg" alt="Foto Auzen 8" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen9.jpeg" alt="Foto Auzen 9" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen10.jpeg" alt="Foto Auzen 10" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen11.jpeg" alt="Foto Auzen 11" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen12.jpeg" alt="Foto Auzen 12" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen13.jpeg" alt="Foto Auzen 13" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen14.jpeg" alt="Foto Auzen 14" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen15.jpeg" alt="Foto Auzen 15" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen16.jpeg" alt="Foto Auzen 16" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen17.jpeg" alt="Foto Auzen 17" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen18.jpeg" alt="Foto Auzen 18" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen19.jpeg" alt="Foto Auzen 19" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen20.jpeg" alt="Foto Auzen 20" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen21.jpeg" alt="Foto Auzen 21" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen22.jpeg" alt="Foto Auzen 22" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen23.jpeg" alt="Foto Auzen 23" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen24.jpeg" alt="Foto Auzen 24" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen25.jpeg" alt="Foto Auzen 25" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen26.jpeg" alt="Foto Auzen 26" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen27.jpeg" alt="Foto Auzen 27" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen28.jpeg" alt="Foto Auzen 28" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen29.jpeg" alt="Foto Auzen 29" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen30.jpeg" alt="Foto Auzen 30" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen31.jpeg" alt="Foto Auzen 31" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen32.jpeg" alt="Foto Auzen 32" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen33.jpeg" alt="Foto Auzen 33" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen34.jpeg" alt="Foto Auzen 34" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen35.jpeg" alt="Foto Auzen 35" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen36.jpeg" alt="Foto Auzen 36" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen37.jpeg" alt="Foto Auzen 37" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen38.jpeg" alt="Foto Auzen 38" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="dostozen.jpeg" alt="Foto Dostozen" onclick="openModal(this)"></div>
         </div>
     </section>
+
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
 
     <footer id="contato">
         <div class="footer-grid">
@@ -468,6 +517,23 @@
     <a href="https://wa.me/5515997878345" class="wa-float" target="_blank">
         <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
+
+    <script>
+        function openModal(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImg");
+            
+            // Exibe a janela modal
+            modal.style.display = "flex";
+            // Copia o link da foto clicada para a foto grande
+            modalImg.src = imgElement.src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
