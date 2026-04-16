@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auzen - Espaço para Animais | Creche e Veterinária em Sorocaba</title>
+    <meta name="description" content="Auzen Espaço para Animais: Creche exclusiva para cães, hotel e clínica veterinária em Sorocaba. Sob os cuidados da Dra. Ana Lúcia Balera.">
     
     <link rel="icon" type="image/jpeg" href="zezé.jpg">
     <link rel="apple-touch-icon" href="zezé.jpg">
@@ -209,7 +210,7 @@
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); cursor: pointer; }
         .gallery-item:hover img { transform: scale(1.05); }
 
-        /* Janela Modal (Efeito de ampliação da foto) */
+        /* Janela Modal (Efeito de ampliação da foto com setas) */
         .modal {
             display: none;
             position: fixed;
@@ -224,7 +225,7 @@
             justify-content: center;
         }
         .modal-content {
-            max-width: 90%;
+            max-width: 85%;
             max-height: 85vh;
             border-radius: 10px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
@@ -232,7 +233,7 @@
             animation: zoomIn 0.3s ease;
         }
         @keyframes zoomIn {
-            from {transform: scale(0.8); opacity: 0;}
+            from {transform: scale(0.95); opacity: 0;}
             to {transform: scale(1); opacity: 1;}
         }
         .close-modal {
@@ -247,6 +248,24 @@
             z-index: 2001;
         }
         .close-modal:hover { color: var(--mint); }
+        
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--white);
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 2001;
+            user-select: none;
+            padding: 20px;
+            opacity: 0.7;
+        }
+        .nav-arrow:hover { color: var(--mint); opacity: 1; }
+        .prev-arrow { left: 20px; }
+        .next-arrow { right: 20px; }
 
         /* 9. Rodapé */
         footer { background: var(--navy); color: white; padding: 80px 20px 40px; border-top-left-radius: 80px; border-top-right-radius: 80px; margin-top: 100px; }
@@ -311,6 +330,10 @@
             footer { border-top-left-radius: 40px; border-top-right-radius: 40px; }
             .wa-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
             .wa-float svg { width: 24px; height: 24px; }
+            
+            /* Ajustes do modal de fotos para celular */
+            .nav-arrow { font-size: 35px; padding: 10px; }
+            .modal-content { max-width: 100%; }
         }
     </style>
 </head>
@@ -335,7 +358,7 @@
         <div class="hero-content">
             <span class="badge">Leve • Alegre • Confiável</span>
             <h1>Cuidado veterinário,<br>carinho de casa.</h1>
-            <p>A primeira creche exclusiva para cães de pequeno porte em Sorocaba, sob o olhar atento de quem ama o que faz.</p>
+            <p>A primeira creche em Sorocaba, sob o olhar atento de quem ama o que faz.</p>
             <a href="https://wa.me/5515997878345" class="btn btn-light" target="_blank">Agendar Avaliação</a>
         </div>
     </section>
@@ -350,7 +373,7 @@
 
             <div class="paper-sheet">
                 <h2>Bem-vindos à Auzen</h2>
-                <p>Nascemos da crença de que os cães de pequeno porte merecem um espaço pensado milimetricamente para eles. Longe de correrias brutas, focamos na qualidade do tempo, na socialização gentil e no bem-estar físico e mental.</p>
+                <p>Nascemos da crença de que os cães merecem um espaço pensado milimetricamente para eles. Longe de correrias brutas, focamos na qualidade do tempo, na socialização gentil e no bem-estar físico e mental.</p>
                 <p>Nossa fundadora é <strong>Médica Veterinária</strong>, o que garante que cada atividade, brincadeira e momento de descanso seja pensado para a saúde do seu pet com um olhar clínico constante.</p>
                 <p>Nós não otimizamos para ter dezenas de cães ao mesmo tempo. Nós otimizamos para ter um grupo harmonioso, onde seu pet é chamado pelo nome e tratado com carinho exclusivo.</p>
                 
@@ -420,11 +443,11 @@
         <div class="faq-container">
             <details>
                 <summary>Quais os critérios para a matrícula?</summary>
-                <div class="faq-content">Cães de pequeno porte (até 10kg), com protocolo vacinal completo (V8/V10, Raiva, Gripe e Giárdia), vermifugação e controle de ectoparasitas em dia.</div>
+                <div class="faq-content">Protocolo vacinal completo (V8/V10, Raiva, Gripe e Giárdia) e controle de ectoparasitas em dia.</div>
             </details>
             <details>
                 <summary>Meu pet precisa estar castrado?</summary>
-                <div class="faq-content">Para machos acima de 8 meses a castração é obrigatória. Fêmeas não podem frequentar no período de cio.</div>
+                <div class="faq-content">Para machos acima de 6 meses a castração é obrigatória. Fêmeas não podem frequentar no período de cio.</div>
             </details>
             <details>
                 <summary>Como funciona a alimentação?</summary>
@@ -436,52 +459,54 @@
     <section>
         <h2 style="text-align: center;">Nossa Estrutura</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="auzen.jpeg" alt="Foto Auzen" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen1.jpeg" alt="Foto Auzen 1" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen2.jpeg" alt="Foto Auzen 2" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen3.jpeg" alt="Foto Auzen 3" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen4.jpeg" alt="Foto Auzen 4" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen5.jpeg" alt="Foto Auzen 5" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen6.jpeg" alt="Foto Auzen 6" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen7.jpeg" alt="Foto Auzen 7" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen8.jpeg" alt="Foto Auzen 8" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen9.jpeg" alt="Foto Auzen 9" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen10.jpeg" alt="Foto Auzen 10" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen11.jpeg" alt="Foto Auzen 11" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen12.jpeg" alt="Foto Auzen 12" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen13.jpeg" alt="Foto Auzen 13" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen14.jpeg" alt="Foto Auzen 14" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen15.jpeg" alt="Foto Auzen 15" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen16.jpeg" alt="Foto Auzen 16" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen17.jpeg" alt="Foto Auzen 17" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen18.jpeg" alt="Foto Auzen 18" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen19.jpeg" alt="Foto Auzen 19" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen20.jpeg" alt="Foto Auzen 20" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen21.jpeg" alt="Foto Auzen 21" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen22.jpeg" alt="Foto Auzen 22" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen23.jpeg" alt="Foto Auzen 23" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen24.jpeg" alt="Foto Auzen 24" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen25.jpeg" alt="Foto Auzen 25" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen26.jpeg" alt="Foto Auzen 26" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen27.jpeg" alt="Foto Auzen 27" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen28.jpeg" alt="Foto Auzen 28" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen29.jpeg" alt="Foto Auzen 29" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen30.jpeg" alt="Foto Auzen 30" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen31.jpeg" alt="Foto Auzen 31" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen32.jpeg" alt="Foto Auzen 32" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen33.jpeg" alt="Foto Auzen 33" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen34.jpeg" alt="Foto Auzen 34" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen35.jpeg" alt="Foto Auzen 35" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen36.jpeg" alt="Foto Auzen 36" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen37.jpeg" alt="Foto Auzen 37" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="auzen38.jpeg" alt="Foto Auzen 38" onclick="openModal(this)"></div>
-            <div class="gallery-item"><img src="dostozen.jpeg" alt="Foto Dostozen" onclick="openModal(this)"></div>
+            <div class="gallery-item"><img src="auzen.jpeg" alt="Foto Auzen"></div>
+            <div class="gallery-item"><img src="auzen1.jpeg" alt="Foto Auzen 1"></div>
+            <div class="gallery-item"><img src="auzen2.jpeg" alt="Foto Auzen 2"></div>
+            <div class="gallery-item"><img src="auzen3.jpeg" alt="Foto Auzen 3"></div>
+            <div class="gallery-item"><img src="auzen4.jpeg" alt="Foto Auzen 4"></div>
+            <div class="gallery-item"><img src="auzen5.jpeg" alt="Foto Auzen 5"></div>
+            <div class="gallery-item"><img src="auzen6.jpeg" alt="Foto Auzen 6"></div>
+            <div class="gallery-item"><img src="auzen7.jpeg" alt="Foto Auzen 7"></div>
+            <div class="gallery-item"><img src="auzen8.jpeg" alt="Foto Auzen 8"></div>
+            <div class="gallery-item"><img src="auzen9.jpeg" alt="Foto Auzen 9"></div>
+            <div class="gallery-item"><img src="auzen10.jpeg" alt="Foto Auzen 10"></div>
+            <div class="gallery-item"><img src="auzen11.jpeg" alt="Foto Auzen 11"></div>
+            <div class="gallery-item"><img src="auzen12.jpeg" alt="Foto Auzen 12"></div>
+            <div class="gallery-item"><img src="auzen13.jpeg" alt="Foto Auzen 13"></div>
+            <div class="gallery-item"><img src="auzen14.jpeg" alt="Foto Auzen 14"></div>
+            <div class="gallery-item"><img src="auzen15.jpeg" alt="Foto Auzen 15"></div>
+            <div class="gallery-item"><img src="auzen16.jpeg" alt="Foto Auzen 16"></div>
+            <div class="gallery-item"><img src="auzen17.jpeg" alt="Foto Auzen 17"></div>
+            <div class="gallery-item"><img src="auzen18.jpeg" alt="Foto Auzen 18"></div>
+            <div class="gallery-item"><img src="auzen19.jpeg" alt="Foto Auzen 19"></div>
+            <div class="gallery-item"><img src="auzen20.jpeg" alt="Foto Auzen 20"></div>
+            <div class="gallery-item"><img src="auzen21.jpeg" alt="Foto Auzen 21"></div>
+            <div class="gallery-item"><img src="auzen22.jpeg" alt="Foto Auzen 22"></div>
+            <div class="gallery-item"><img src="auzen23.jpeg" alt="Foto Auzen 23"></div>
+            <div class="gallery-item"><img src="auzen24.jpeg" alt="Foto Auzen 24"></div>
+            <div class="gallery-item"><img src="auzen25.jpeg" alt="Foto Auzen 25"></div>
+            <div class="gallery-item"><img src="auzen26.jpeg" alt="Foto Auzen 26"></div>
+            <div class="gallery-item"><img src="auzen27.jpeg" alt="Foto Auzen 27"></div>
+            <div class="gallery-item"><img src="auzen28.jpeg" alt="Foto Auzen 28"></div>
+            <div class="gallery-item"><img src="auzen29.jpeg" alt="Foto Auzen 29"></div>
+            <div class="gallery-item"><img src="auzen30.jpeg" alt="Foto Auzen 30"></div>
+            <div class="gallery-item"><img src="auzen31.jpeg" alt="Foto Auzen 31"></div>
+            <div class="gallery-item"><img src="auzen32.jpeg" alt="Foto Auzen 32"></div>
+            <div class="gallery-item"><img src="auzen33.jpeg" alt="Foto Auzen 33"></div>
+            <div class="gallery-item"><img src="auzen34.jpeg" alt="Foto Auzen 34"></div>
+            <div class="gallery-item"><img src="auzen35.jpeg" alt="Foto Auzen 35"></div>
+            <div class="gallery-item"><img src="auzen36.jpeg" alt="Foto Auzen 36"></div>
+            <div class="gallery-item"><img src="auzen37.jpeg" alt="Foto Auzen 37"></div>
+            <div class="gallery-item"><img src="auzen38.jpeg" alt="Foto Auzen 38"></div>
+            <div class="gallery-item"><img src="dostozen.jpeg" alt="Foto Dostozen"></div>
         </div>
     </section>
 
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close-modal">&times;</span>
+    <div id="imageModal" class="modal">
+        <span class="close-modal" onclick="closeGalleryModal()">×</span>
+        <span class="nav-arrow prev-arrow" onclick="changeGalleryImage(-1, event)">❮</span>
         <img class="modal-content" id="modalImg">
+        <span class="nav-arrow next-arrow" onclick="changeGalleryImage(1, event)">❯</span>
     </div>
 
     <footer id="contato">
@@ -519,20 +544,67 @@
     </a>
 
     <script>
-        function openModal(imgElement) {
-            var modal = document.getElementById("imageModal");
-            var modalImg = document.getElementById("modalImg");
-            
-            // Exibe a janela modal
+        let currentImageIndex = 0;
+        const galleryImages = [];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Varre as fotos da galeria e prepara a lista automaticamente
+            const imgs = document.querySelectorAll('.gallery-grid img');
+            imgs.forEach((img, index) => {
+                galleryImages.push(img.src);
+                img.onclick = function() {
+                    openGalleryModal(index);
+                };
+            });
+        });
+
+        function openGalleryModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImg");
             modal.style.display = "flex";
-            // Copia o link da foto clicada para a foto grande
-            modalImg.src = imgElement.src;
+            modalImg.src = galleryImages[currentImageIndex];
         }
 
-        function closeModal() {
-            var modal = document.getElementById("imageModal");
-            modal.style.display = "none";
+        function closeGalleryModal() {
+            document.getElementById("imageModal").style.display = "none";
         }
+
+        function changeGalleryImage(step, event) {
+            if(event) event.stopPropagation(); // Impede de fechar a janela ao clicar na seta
+            currentImageIndex += step;
+            
+            // Faz o loop infinito
+            if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            }
+            
+            document.getElementById("modalImg").src = galleryImages[currentImageIndex];
+        }
+
+        // Fechar ao clicar fora da imagem
+        window.onclick = function(event) {
+            const modal = document.getElementById("imageModal");
+            if (event.target === modal) {
+                closeGalleryModal();
+            }
+        };
+
+        // Suporte a teclas do teclado (Esc e Setas)
+        document.addEventListener('keydown', function(event) {
+            const modal = document.getElementById("imageModal");
+            if (modal.style.display === "flex") {
+                if (event.key === "ArrowLeft") {
+                    changeGalleryImage(-1);
+                } else if (event.key === "ArrowRight") {
+                    changeGalleryImage(1);
+                } else if (event.key === "Escape") {
+                    closeGalleryModal();
+                }
+            }
+        });
     </script>
 
 </body>
