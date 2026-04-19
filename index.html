@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         :root {
@@ -59,6 +61,27 @@
         
         .btn-light { background: var(--cream); color: var(--navy); }
         .btn-light:hover { background: var(--mint); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* Efeito de pulso para CTA */
+        .btn-pulse {
+            animation: pulseCTA 2s infinite;
+        }
+        @keyframes pulseCTA {
+            0% { box-shadow: 0 0 0 0 rgba(255, 247, 237, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(255, 247, 237, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 247, 237, 0); }
+        }
+
+        /* Animações de Reveal no Scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* 1. Header Flutuante (Menu Pílula) */
         header {
@@ -195,7 +218,18 @@
         .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
         .service-card { background: white; padding: 40px; border-radius: 30px; transition: var(--transition); border: 1px solid transparent; }
         .service-card:hover { transform: translateY(-10px); border-color: var(--lilac); box-shadow: var(--shadow-soft); }
-        .service-card .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .lucide-icon { width: 48px; height: 48px; color: var(--primary-blue); margin-bottom: 20px; stroke-width: 1.5; }
+
+        /* 6. Depoimentos (Prova Social) */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
+        .testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-soft); position: relative; }
+        .quote-icon { position: absolute; top: 20px; right: 20px; color: var(--lilac); width: 40px; height: 40px; opacity: 0.5; }
+        .testimonial-text { font-style: italic; color: #555; margin-bottom: 20px; z-index: 1; position: relative; }
+        .testimonial-author { display: flex; align-items: center; gap: 15px; }
+        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--mint); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--navy); }
+        .author-info h4 { font-family: 'Inter', sans-serif; font-size: 1rem; margin-bottom: 2px; }
+        .author-info span { font-size: 0.8rem; color: #888; }
+        .stars { color: #FFD700; margin-bottom: 10px; display: flex; gap: 2px; }
 
         /* 7. FAQ */
         .faq-container { max-width: 800px; margin: 50px auto 0; }
@@ -205,11 +239,24 @@
         details[open] summary::after { content: '-'; }
         .faq-content { padding: 0 20px 20px; font-size: 0.95rem; color: #555; }
 
-        /* 8. Galeria */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 50px; }
-        .gallery-item { height: 250px; border-radius: 15px; overflow: hidden; }
+        /* 8. Galeria Bento Grid */
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            grid-auto-rows: 250px;
+            grid-auto-flow: dense;
+            gap: 15px; 
+            margin-top: 50px; 
+        }
+        .gallery-item { border-radius: 15px; overflow: hidden; height: 100%; }
+        .gallery-item.span-2-row { grid-row: span 2; }
+        .gallery-item.span-2-col { grid-column: span 2; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); cursor: pointer; }
         .gallery-item:hover img { transform: scale(1.05); }
+
+        @media (max-width: 600px) {
+            .gallery-item.span-2-col { grid-column: span 1; }
+        }
 
         /* Janela Modal (Efeito de ampliação da foto com setas) */
         .modal {
@@ -280,8 +327,8 @@
         .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white !important; padding: 10px 20px; border-radius: 30px; text-align: center; font-weight: bold;}
         .btn-whats-footer { background: #25D366; color: white !important; padding: 10px 20px; border-radius: 30px; text-align: center; font-weight: bold;}
         
-        .map-container { margin-top: 20px; border-radius: 15px; overflow: hidden; width: 100%; height: 200px;}
-        .map-container iframe { width: 100%; height: 100%; border: 0; }
+        .map-container { margin-top: 20px; border-radius: 15px; overflow: hidden; width: 100%; height: 200px; background: #eee;}
+        .map-container iframe { width: 100%; height: 100%; border: 0; filter: contrast(1.1) grayscale(0.2) opacity(0.9); }
 
         /* Botão Flutuante WhatsApp */
         .wa-float {
@@ -350,6 +397,7 @@
                 <li><a href="#sobre">Nossa Essência</a></li>
                 <li><a href="#metodo">Metodologia</a></li>
                 <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -360,11 +408,11 @@
             <span class="badge">Leve • Alegre • Confiável</span>
             <h1>Cuidado veterinário,<br>carinho de casa.</h1>
             <p> Creche e hotel em Sorocaba, sob o olhar atento de quem ama o que faz.</p>
-            <a href="https://wa.me/5515997878345" class="btn btn-light" target="_blank">Agendar Avaliação</a>
+            <a href="https://wa.me/5515997878345" class="btn btn-light btn-pulse" target="_blank">Agendar Avaliação</a>
         </div>
     </section>
 
-    <section id="sobre" class="about-editorial">
+    <section id="sobre" class="about-editorial reveal">
         <div class="paper-composition">
             
             <div class="polaroid p1">
@@ -392,9 +440,9 @@
         </div>
     </section>
 
-    <section id="metodo">
+    <section id="metodo" class="reveal">
         <h2 style="text-align: center; margin-bottom: 40px;">Como matricular seu pet?</h2>
-        <div class="steps">
+        <div class="steps reveal">
             <div class="step-item">
                 <span class="step-number">01</span>
                 <h3>Contato Inicial</h3>
@@ -413,33 +461,67 @@
         </div>
     </section>
 
-    <section id="servicos">
+    <section id="servicos" class="reveal">
         <h2 style="text-align: center; margin-bottom: 50px;">O que oferecemos</h2>
         <div class="services-grid">
-            <div class="service-card">
-                <span class="icon">🎾</span>
+            <div class="service-card reveal">
+                <i data-lucide="paw-print" class="lucide-icon"></i>
                 <h3>Creche Exclusiva</h3>
                 <p>Foco total em pequeno porte. Socialização segura, atividades recreativas e enriquecimento ambiental.</p>
             </div>
-            <div class="service-card">
-                <span class="icon">🩺</span>
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <i data-lucide="heart-pulse" class="lucide-icon"></i>
                 <h3>Atendimento Vet</h3>
                 <p>Consultas e orientações de saúde realizadas no local pela Dra. proprietária do espaço.</p>
             </div>
-            <div class="service-card">
-                <span class="icon">🛏️</span>
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <i data-lucide="moon-star" class="lucide-icon"></i>
                 <h3>Hotel Pet</h3>
                 <p>Hospedagem acolhedora com supervisão veterinária, para que seu pequeno durma tranquilo enquanto você viaja.</p>
             </div>
-            <div class="service-card">
-                <span class="icon">📷</span>
+            <div class="service-card reveal" style="transition-delay: 0.3s;">
+                <i data-lucide="camera" class="lucide-icon"></i>
                 <h3>Relatórios Diários</h3>
                 <p>Trabalhe tranquilo acompanhando o dia do seu pet através de fotos e vídeos enviados para você.</p>
             </div>
         </div>
     </section>
 
-    <section>
+    <section id="depoimentos" class="reveal">
+        <h2 style="text-align: center;">O Que Dizem Nossos Clientes</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <i data-lucide="quote" class="quote-icon"></i>
+                <div class="stars">
+                    <i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i>
+                </div>
+                <p class="testimonial-text">"O Auzen mudou a rotina do meu cachorrinho. Ele volta para casa feliz, cansado e super sociável. Saber que tem uma veterinária supervisionando tudo me dá muita paz!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">M</div>
+                    <div class="author-info">
+                        <h4>Mariana Silva</h4>
+                        <span>Tutora do Thor (Spitz)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
+                <i data-lucide="quote" class="quote-icon"></i>
+                <div class="stars">
+                    <i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i>
+                </div>
+                <p class="testimonial-text">"Amo o cuidado que a equipe tem. As fotos diárias são o ponto alto do meu dia no trabalho. Excelente estrutura de hotelzinho, viajo super tranquilo."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">L</div>
+                    <div class="author-info">
+                        <h4>Lucas Costa</h4>
+                        <span>Tutor da Luna (Shih Tzu)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reveal">
         <h2 style="text-align: center;">Perguntas Frequentes</h2>
         <div class="faq-container">
             <details>
@@ -457,16 +539,16 @@
         </div>
     </section>
 
-    <section>
+    <section class="reveal">
         <h2 style="text-align: center;">Nossa Estrutura</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="auzen.jpeg" alt="Foto Auzen"></div>
-            <div class="gallery-item"><img src="auzen1.jpeg" alt="Foto Auzen 1"></div>
+            <div class="gallery-item span-2-col span-2-row"><img src="auzen.jpeg" alt="Foto Auzen"></div>
+            <div class="gallery-item span-2-col"><img src="auzen1.jpeg" alt="Foto Auzen 1"></div>
             <div class="gallery-item"><img src="auzen2.jpeg" alt="Foto Auzen 2"></div>
             <div class="gallery-item"><img src="auzen3.jpeg" alt="Foto Auzen 3"></div>
-            <div class="gallery-item"><img src="auzen4.jpeg" alt="Foto Auzen 4"></div>
+            <div class="gallery-item span-2-col"><img src="auzen4.jpeg" alt="Foto Auzen 4"></div>
             <div class="gallery-item"><img src="auzen5.jpeg" alt="Foto Auzen 5"></div>
-            <div class="gallery-item"><img src="auzen6.jpeg" alt="Foto Auzen 6"></div>
+            <div class="gallery-item span-2-row"><img src="auzen6.jpeg" alt="Foto Auzen 6"></div>
             <div class="gallery-item"><img src="auzen7.jpeg" alt="Foto Auzen 7"></div>
             <div class="gallery-item"><img src="auzen8.jpeg" alt="Foto Auzen 8"></div>
             <div class="gallery-item"><img src="auzen9.jpeg" alt="Foto Auzen 9"></div>
@@ -478,10 +560,10 @@
             <div class="gallery-item"><img src="auzen15.jpeg" alt="Foto Auzen 15"></div>
             <div class="gallery-item"><img src="auzen16.jpeg" alt="Foto Auzen 16"></div>
             <div class="gallery-item"><img src="auzen17.jpeg" alt="Foto Auzen 17"></div>
-            <div class="gallery-item"><img src="auzen18.jpeg" alt="Foto Auzen 18"></div>
-            <div class="gallery-item"><img src="auzen19.jpeg" alt="Foto Auzen 19"></div>
+            <div class="gallery-item span-2-row"><img src="auzen18.jpeg" alt="Foto Auzen 18"></div>
+            <div class="gallery-item span-2-col"><img src="auzen19.jpeg" alt="Foto Auzen 19"></div>
             <div class="gallery-item"><img src="auzen20.jpeg" alt="Foto Auzen 20"></div>
-            <div class="gallery-item"><img src="auzen21.jpeg" alt="Foto Auzen 21"></div>
+            <div class="gallery-item span-2-row"><img src="auzen21.jpeg" alt="Foto Auzen 21"></div>
             <div class="gallery-item"><img src="auzen22.jpeg" alt="Foto Auzen 22"></div>
             <div class="gallery-item"><img src="auzen23.jpeg" alt="Foto Auzen 23"></div>
             <div class="gallery-item"><img src="auzen24.jpeg" alt="Foto Auzen 24"></div>
@@ -549,6 +631,26 @@
         const galleryImages = [];
 
         document.addEventListener("DOMContentLoaded", () => {
+            // Inicializar ícones Lucide
+            lucide.createIcons();
+
+            // Configurar Animações Reveal de Scroll
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+
             // Varre as fotos da galeria e prepara a lista automaticamente
             const imgs = document.querySelectorAll('.gallery-grid img');
             imgs.forEach((img, index) => {
