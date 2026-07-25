@@ -338,7 +338,9 @@ h3 {
     min-height: 920px;
     padding: 180px 0 90px;
     overflow: hidden;
-    background: var(--purple);
+    background:
+        radial-gradient(circle at 82% 22%, rgba(112, 100, 214, 0.22) 0, rgba(112, 100, 214, 0) 32%),
+        linear-gradient(180deg, #17172f 0%, #25235e 34%, #36309a 68%, #4b40c7 100%);
     color: white;
 }
 
@@ -579,10 +581,17 @@ h3 {
     transform: rotate(-3deg);
 }
 
+.about-photo-frame {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+}
+
 .about-photo-card img {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    height: 100%;
     object-fit: cover;
+    object-position: center 62%;
+    transform: scale(1.28) translate(-13%, -8%);
 }
 
 .about-photo-card p {
