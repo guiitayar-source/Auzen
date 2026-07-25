@@ -1,726 +1,398 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="lRogjItXHPoH9J7iqMklsjA9P-bGEtX6tUvRIjf02hs" />
-    <title>Auzên - Espaço para Animais | Creche e Veterinária em Sorocaba</title>
-    <meta name="description" content="Auzên Espaço para Animais: Creche exclusiva para cães, hotel e clínica veterinária em Sorocaba. Sob os cuidados da Dra. Ana Lúcia Balera.">
-    
-   <link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="lRogjItXHPoH9J7iqMklsjA9P-bGEtX6tUvRIjf02hs">
+
+    <title>Creche e hotel para cães em Sorocaba | Auzên</title>
+    <meta name="description" content="Creche e hotel para cães de pequeno porte em Sorocaba, com grupos reduzidos, rotina enriquecedora e supervisão veterinária. Conheça a Auzên.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#4234b9">
+    <link rel="canonical" href="https://auzenpet.com.br/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="Auzên — Espaço para Animais">
+    <meta property="og:url" content="https://auzenpet.com.br/">
+    <meta property="og:title" content="Auzên | Creche e hotel para cães em Sorocaba">
+    <meta property="og:description" content="Um espaço pensado para cães de pequeno porte brincarem, socializarem e descansarem com segurança.">
+    <meta property="og:image" content="https://auzenpet.com.br/assets/images/galeria-quintal.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="675">
+    <meta property="og:image:alt" content="Cães explorando juntos a área externa da Auzên">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- Ícones Lucide -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <style>
-        :root {
-            /* Design System Colors */
-            --primary-blue: #4033BC;
-            --cream: #FFF7ED;
-            --navy: #1A1A32;
-            --mint: #C2E5BA;
-            --lilac: #E5E3FC;
-            --white: #FCFCFC;
-            --text-dark: #2D2D2D;
-            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;0,700;1,600&amp;display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/images/hero-dog.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="stylesheet" href="assets/css/styles.css">
 
-        /* Reset e Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--cream); 
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--navy); }
-        section { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-
-        .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            text-align: center;
-        }
-
-        .btn-primary { background: var(--primary-blue); color: white; }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(64, 51, 188, 0.3); }
-        
-        .btn-light { background: var(--cream); color: var(--navy); }
-        .btn-light:hover { background: var(--mint); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* Efeito de pulso para CTA */
-        .btn-pulse {
-            animation: pulseCTA 2s infinite;
-        }
-        @keyframes pulseCTA {
-            0% { box-shadow: 0 0 0 0 rgba(255, 247, 237, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(255, 247, 237, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(255, 247, 237, 0); }
-        }
-
-        /* Animações de Reveal no Scroll */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* 1. Header Flutuante (Menu Pílula) */
-        header {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 90%;
-            max-width: 800px;
-            background: rgba(255, 247, 237, 0.85); /* Fundo creme translúcido */
-            backdrop-filter: blur(12px);
-            padding: 10px 30px;
-            border-radius: 100px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--primary-blue); font-size: 1.2rem; text-decoration: none;}
-        .logo img { width: 40px; height: 40px; border-radius: 8px; object-fit: cover; }
-
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: var(--navy); font-size: 0.9rem; font-weight: 600; transition: var(--transition); }
-        nav ul li a:hover { color: var(--primary-blue); }
-
-        /* 2. Hero Section */
-        .hero {
-            min-height: 100vh;
-            max-width: 100%;
-            background: linear-gradient(180deg, var(--navy) 0%, var(--primary-blue) 60%, var(--cream) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 120px 20px 200px 20px; 
-            position: relative;
-        }
-
-        .hero-content { display: flex; flex-direction: column; align-items: center; z-index: 1; }
-        
-        .badge {
-            display: inline-block;
-            border: 1px solid rgba(255, 247, 237, 0.3);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 25px;
-            color: var(--lilac);
-        }
-
-        .hero-content h1 { color: var(--white); font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; line-height: 1.1; max-width: 900px; }
-        .hero-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px; color: var(--lilac); font-weight: 300; }
-
-        /* 3. Sobre Nós */
-        .about-editorial {
-            padding: 0 20px 100px 20px;
-            display: flex;
-            justify-content: center;
-            max-width: 100%;
-        }
-
-        .paper-composition {
-            position: relative;
-            max-width: 800px;
-            width: 100%;
-            margin-top: -180px; 
-            display: flex;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .paper-sheet {
-            background: var(--white);
-            padding: 60px 50px;
-            width: 100%;
-            max-width: 550px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            transform: rotate(-2deg); 
-            position: relative;
-            z-index: 2;
-            border-radius: 4px;
-        }
-        
-        .paper-sheet h2 { margin-bottom: 20px; font-size: 2.2rem; text-align: center; font-style: italic;}
-        .paper-sheet p { font-size: 1.05rem; color: #444; margin-bottom: 15px; text-align: justify; }
-
-        .signature {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            margin-top: 30px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            text-align: left;
-        }
-
-        .polaroid {
-            position: absolute;
-            background: white;
-            padding: 10px 10px 35px 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            width: 180px;
-            z-index: 3;
-            transition: var(--transition);
-        }
-        .polaroid:hover { transform: scale(1.05) rotate(0deg); z-index: 4; }
-        .polaroid img { width: 100%; height: 160px; object-fit: cover; display: block; background-color: var(--lilac); }
-        .polaroid span { 
-            display: block; 
-            text-align: center; 
-            font-family: 'Playfair Display', serif; 
-            font-style: italic; 
-            font-size: 0.85rem; 
-            color: var(--navy); 
-            margin-top: 10px; 
-        }
-
-        .p1 { bottom: -30px; left: -50px; transform: rotate(-6deg); }
-        .p2 { top: 40px; right: -60px; transform: rotate(8deg); }
-
-        /* 4. Metodologia */
-        .steps { background: var(--lilac); border-radius: 50px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 60px; margin-top: 50px;}
-        .step-item { text-align: center; }
-        .step-number { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--primary-blue); opacity: 0.3; margin-bottom: 10px; display: block; }
-
-        /* 5. Serviços */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 50px; }
-        .service-card { background: white; padding: 40px; border-radius: 30px; transition: var(--transition); border: 1px solid transparent; }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--lilac); box-shadow: var(--shadow-soft); }
-        .lucide-icon { width: 48px; height: 48px; color: var(--primary-blue); margin-bottom: 20px; stroke-width: 1.5; }
-
-        /* 6. Depoimentos (Prova Social) */
-        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 50px; }
-        .testimonial-card { background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-soft); position: relative; }
-        .quote-icon { position: absolute; top: 20px; right: 20px; color: var(--lilac); width: 40px; height: 40px; opacity: 0.5; }
-        .testimonial-text { font-style: italic; color: #555; margin-bottom: 20px; z-index: 1; position: relative; }
-        .testimonial-author { display: flex; align-items: center; gap: 15px; }
-        .author-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--mint); display: flex; align-items: center; justify-content: center; font-weight: bold; color: var(--navy); }
-        .author-info h4 { font-family: 'Inter', sans-serif; font-size: 1rem; margin-bottom: 2px; }
-        .author-info span { font-size: 0.8rem; color: #888; }
-        .stars { color: #FFD700; margin-bottom: 10px; display: flex; gap: 2px; }
-
-        /* 7. FAQ */
-        .faq-container { max-width: 800px; margin: 50px auto 0; }
-        details { background: white; margin-bottom: 15px; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.02);}
-        summary { padding: 20px; cursor: pointer; font-weight: 600; list-style: none; display: flex; justify-content: space-between; color: var(--navy); }
-        summary::after { content: '+'; color: var(--primary-blue); font-size: 1.2rem; }
-        details[open] summary::after { content: '-'; }
-        .faq-content { padding: 0 20px 20px; font-size: 0.95rem; color: #555; }
-
-        /* 8. Galeria Bento Grid */
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-            grid-auto-rows: 250px;
-            grid-auto-flow: dense;
-            gap: 15px; 
-            margin-top: 50px; 
-        }
-        .gallery-item { border-radius: 15px; overflow: hidden; height: 100%; }
-        .gallery-item.span-2-row { grid-row: span 2; }
-        .gallery-item.span-2-col { grid-column: span 2; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); cursor: pointer; }
-        .gallery-item:hover img { transform: scale(1.05); }
-
-        @media (max-width: 768px) {
-            .gallery-grid {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            .gallery-item,
-            .gallery-item.span-2-col,
-            .gallery-item.span-2-row {
-                width: calc(50% - 5px);
-                height: 150px;
-                flex-shrink: 0;
-                flex-grow: 0;
-            }
-        }
-
-        /* Janela Modal (Efeito de ampliação da foto com setas) */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(26, 26, 50, 0.85); /* Cor Navy com transparência */
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            max-width: 85%;
-            max-height: 85vh;
-            border-radius: 10px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            object-fit: contain;
-            animation: zoomIn 0.3s ease;
-        }
-        @keyframes zoomIn {
-            from {transform: scale(0.95); opacity: 0;}
-            to {transform: scale(1); opacity: 1;}
-        }
-        .close-modal {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: var(--white);
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 2001;
-        }
-        .close-modal:hover { color: var(--mint); }
-        
-        .nav-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--white);
-            font-size: 50px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 2001;
-            user-select: none;
-            padding: 20px;
-            opacity: 0.7;
-        }
-        .nav-arrow:hover { color: var(--mint); opacity: 1; }
-        .prev-arrow { left: 20px; }
-        .next-arrow { right: 20px; }
-
-        /* 9. Rodapé */
-        footer { background: var(--navy); color: white; padding: 80px 20px 40px; border-top-left-radius: 80px; border-top-right-radius: 80px; margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto; }
-        .footer-col h4 { color: var(--mint); margin-bottom: 20px; font-size: 1.5rem; }
-        .footer-col p { margin-bottom: 10px; opacity: 0.8; font-size: 0.9rem; }
-        .footer-col a { color: white; text-decoration: none; transition: var(--transition); }
-        .footer-col a:hover { color: var(--mint); }
-        
-        .social-btns { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
-        .btn-insta { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white !important; padding: 10px 20px; border-radius: 30px; text-align: center; font-weight: bold;}
-        .btn-whats-footer { background: #25D366; color: white !important; padding: 10px 20px; border-radius: 30px; text-align: center; font-weight: bold;}
-        
-        .map-container { margin-top: 20px; border-radius: 15px; overflow: hidden; width: 100%; height: 200px; background: #eee;}
-        .map-container iframe { width: 100%; height: 100%; border: 0; filter: contrast(1.1) grayscale(0.2) opacity(0.9); }
-
-        /* Botão Flutuante WhatsApp */
-        .wa-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
-            z-index: 999;
-            transition: var(--transition);
-        }
-        .wa-float:hover { transform: scale(1.1); }
-
-        /* Responsividade */
-        @media (max-width: 850px) {
-            header { width: 95%; padding: 10px 15px; border-radius: 15px;}
-            nav ul { display: none; } /* Esconde menu no celular para ficar limpo */
-            
-            .hero { padding: 140px 20px 150px 20px; min-height: auto;}
-            .hero-content h1 { font-size: 2.5rem; }
-            
-            .paper-composition { 
-                flex-direction: column; 
-                align-items: center;
-                margin-top: -80px; 
-            }
-            .paper-sheet { transform: rotate(0deg); padding: 40px 25px; width: 95%; }
-            
-            .polaroid { 
-                position: relative; 
-                display: block; 
-                width: 200px;
-            }
-            .p1 { transform: rotate(-3deg); left: 0; bottom: 0; margin-bottom: -20px; z-index: 3;}
-            .p2 { transform: rotate(3deg); right: 0; top: 0; margin-top: -20px; z-index: 3;}
-
-            .steps { border-radius: 20px; padding: 30px; }
-            section { padding: 60px 20px; }
-            footer { border-top-left-radius: 40px; border-top-right-radius: 40px; }
-            .wa-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
-            .wa-float svg { width: 24px; height: 24px; }
-            
-            /* Ajustes do modal de fotos para celular */
-            .nav-arrow { font-size: 35px; padding: 10px; }
-            .modal-content { max-width: 100%; }
-        }
-    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["LocalBusiness", "VeterinaryCare"],
+      "name": "Auzên — Espaço para Animais",
+      "description": "Creche e hotel para cães de pequeno porte em Sorocaba, com supervisão veterinária.",
+      "url": "https://auzenpet.com.br/",
+      "image": "https://auzenpet.com.br/assets/images/hero-dog.webp",
+      "telephone": "+55 15 99787-8345",
+      "email": "auzenespacoparaanimais@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Dr. Fernando Costa, 432",
+        "addressLocality": "Sorocaba",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:30",
+        "closes": "19:00"
+      }],
+      "sameAs": ["https://instagram.com/auzenespacopet"]
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <header>
-        <a href="#" class="logo">
-            <img src="zezé.jpg" alt="Logo Auzen">
-            <span>Auzên</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#sobre">Nossa Essência</a></li>
-                <li><a href="#metodo">Metodologia</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#depoimentos">Depoimentos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
+    <header class="site-header" data-header>
+        <div class="header-inner">
+            <a class="brand" href="#inicio" aria-label="Auzên — página inicial">
+                <img src="assets/images/logo-auzen.webp" width="320" height="320" alt="" decoding="async">
+                <span>Auzên</span>
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-menu-toggle>
+                <span class="sr-only">Abrir menu</span>
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav id="menu-principal" class="main-nav" aria-label="Navegação principal" data-menu>
+                <a href="#essencia">A Auzên</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#estrutura">Estrutura</a>
+                <a href="#duvidas">Dúvidas</a>
+            </nav>
+
+            <a class="button button-small header-cta" data-cta="header" href="https://wa.me/5515997878345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Auz%C3%AAn%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+                Agendar avaliação
+            </a>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <span class="badge">Leve • Alegre • Confiável</span>
-            <h1>Cuidado veterinário,<br>carinho de casa.</h1>
-            <p> Creche e hotel em Sorocaba, sob o olhar atento de quem ama o que faz.</p>
-            <a href="https://wa.me/5515997878345" class="btn btn-light btn-pulse" target="_blank">Agendar Avaliação</a>
-        </div>
-    </section>
-
-    <section id="sobre" class="about-editorial reveal">
-        <div class="paper-composition">
-            
-            <div class="polaroid p1">
-                <img src="anazen.jpeg" alt="Veterinária">
-                <span>Atendimento Especializado ♡</span>
-            </div>
-
-            <div class="paper-sheet">
-                <h2>Bem-vindos à Auzên</h2>
-                <p>Nascemos da crença de que os cães merecem um espaço pensado milimetricamente para eles. Longe de correrias brutas, focamos na qualidade do tempo, na socialização gentil e no bem-estar físico e mental.</p>
-                <p>Nossa fundadora é <strong>Médica Veterinária</strong>, o que garante que cada atividade, brincadeira e momento de descanso seja pensado para a saúde do seu pet com um olhar clínico constante.</p>
-                <p>Nós não otimizamos para ter dezenas de cães ao mesmo tempo. Nós otimizamos para ter um grupo harmonioso, onde seu pet é chamado pelo nome e tratado com carinho exclusivo.</p>
-                
-                <div class="signature">
-                    Dra. Ana Lúcia Bonilha Scomparim Balera<br>
-                    <span style="font-size: 0.9rem; font-family: 'Inter', sans-serif; color: #777;">Médica Veterinária e Fundadora</span>
+    <main id="conteudo">
+        <section class="hero" id="inicio">
+            <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+            <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+            <div class="container hero-grid">
+                <div class="hero-copy reveal is-visible">
+                    <p class="eyebrow eyebrow-light">Creche e hotel para cães em Sorocaba</p>
+                    <h1>Um dia feliz para ele. <em>Tranquilidade</em> para você.</h1>
+                    <p class="hero-lead">Um espaço feito para cães de pequeno porte brincarem, socializarem e descansarem em grupos reduzidos, sempre sob supervisão veterinária.</p>
+                    <div class="hero-actions">
+                        <a class="button button-cream" data-cta="hero" href="https://wa.me/5515997878345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Auz%C3%AAn%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener noreferrer">
+                            Quero conhecer a Auzên
+                            <span aria-hidden="true">↗</span>
+                        </a>
+                        <a class="text-link text-link-light" href="#como-funciona">Entenda como funciona <span aria-hidden="true">↓</span></a>
+                    </div>
+                    <p class="hero-note">A avaliação comportamental é o primeiro passo para uma adaptação segura.</p>
                 </div>
-            </div>
 
-            <div class="polaroid p2">
-                <img src="zezé.jpg" alt="Zezé o Mascote">
-                <span>Zezé, nosso mascote oficial ✨</span>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="metodo" class="reveal">
-        <h2 style="text-align: center; margin-bottom: 40px;">Como matricular seu pet?</h2>
-        <div class="steps reveal">
-            <div class="step-item">
-                <span class="step-number">01</span>
-                <h3>Contato Inicial</h3>
-                <p>Entre em contato pelo WhatsApp e marque uma visita para conhecer nossa estrutura.</p>
-            </div>
-            <div class="step-item">
-                <span class="step-number">02</span>
-                <h3>Avaliação</h3>
-                <p>Realizamos uma avaliação comportamental para garantir a harmonia do grupo.</p>
-            </div>
-            <div class="step-item">
-                <span class="step-number">03</span>
-                <h3>Início Zen</h3>
-                <p>Com tudo certo e vacinas em dia, ele já pode começar a gastar energia e relaxar!</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="servicos" class="reveal">
-        <h2 style="text-align: center; margin-bottom: 50px;">O que oferecemos</h2>
-        <div class="services-grid">
-            <div class="service-card reveal">
-                <i data-lucide="paw-print" class="lucide-icon"></i>
-                <h3>Creche Exclusiva</h3>
-                <p>Foco total em pequeno porte. Socialização segura, atividades recreativas e enriquecimento ambiental.</p>
-            </div>
-            <div class="service-card reveal" style="transition-delay: 0.1s;">
-                <i data-lucide="heart-pulse" class="lucide-icon"></i>
-                <h3>Atendimento Vet</h3>
-                <p>Consultas e orientações de saúde realizadas no local pela Dra. proprietária do espaço.</p>
-            </div>
-            <div class="service-card reveal" style="transition-delay: 0.2s;">
-                <i data-lucide="moon-star" class="lucide-icon"></i>
-                <h3>Hotel Pet</h3>
-                <p>Hospedagem acolhedora com supervisão veterinária, para que seu pequeno durma tranquilo enquanto você viaja.</p>
-            </div>
-            <div class="service-card reveal" style="transition-delay: 0.3s;">
-                <i data-lucide="camera" class="lucide-icon"></i>
-                <h3>Relatórios Diários</h3>
-                <p>Trabalhe tranquilo acompanhando o dia do seu pet através de fotos e vídeos enviados para você.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="depoimentos" class="reveal">
-        <h2 style="text-align: center;">O Que Dizem Nossos Clientes</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card reveal">
-                <i data-lucide="quote" class="quote-icon"></i>
-                <div class="stars">
-                    <i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i>
-                </div>
-                <p class="testimonial-text">"O Auzen mudou a rotina do meu cachorrinho. Ele volta para casa feliz, cansado e super sociável. Saber que tem uma veterinária supervisionando tudo me dá muita paz!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <h4>Mariana Silva</h4>
-                        <span>Tutora do Thor (Spitz)</span>
+                <div class="hero-visual reveal is-visible">
+                    <div class="hero-photo-wrap">
+                        <img class="hero-photo" src="assets/images/hero-dog.webp" width="1200" height="1600" alt="Cão sorrindo durante um dia de atividades na Auzên" fetchpriority="high">
+                    </div>
+                    <div class="hero-stamp" aria-label="Cuidado com olhar veterinário">
+                        <span>olhar</span>
+                        <strong>veterinário</strong>
+                        <span>todos os dias</span>
+                    </div>
+                    <div class="hero-caption">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        Rotina leve, ativa e cheia de afeto
                     </div>
                 </div>
             </div>
-            <div class="testimonial-card reveal" style="transition-delay: 0.1s;">
-                <i data-lucide="quote" class="quote-icon"></i>
-                <div class="stars">
-                    <i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i><i data-lucide="star" style="fill: currentColor; width: 16px;"></i>
+        </section>
+
+        <section class="trust-strip" aria-label="Diferenciais da Auzên">
+            <div class="container trust-grid">
+                <div class="trust-item reveal">
+                    <span class="trust-number">01</span>
+                    <p><strong>Grupos reduzidos</strong><br>para atenção de verdade</p>
                 </div>
-                <p class="testimonial-text">"Amo o cuidado que a equipe tem. As fotos diárias são o ponto alto do meu dia no trabalho. Excelente estrutura de hotelzinho, viajo super tranquilo."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">L</div>
-                    <div class="author-info">
-                        <h4>Lucas Costa</h4>
-                        <span>Tutor da Luna (Shih Tzu)</span>
+                <div class="trust-item reveal">
+                    <span class="trust-number">02</span>
+                    <p><strong>Foco em pequeno porte</strong><br>com convivência mais harmoniosa</p>
+                </div>
+                <div class="trust-item reveal">
+                    <span class="trust-number">03</span>
+                    <p><strong>Supervisão veterinária</strong><br>em toda a rotina</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about" id="essencia">
+            <div class="container about-grid">
+                <div class="about-visual reveal">
+                    <div class="about-photo-card">
+                        <img src="assets/images/ana-e-pet.webp" width="900" height="1199" alt="Dra. Ana Lúcia ao lado de um cão" loading="lazy" decoding="async">
+                        <p>Dra. Ana Lúcia<br><span>Médica-veterinária e fundadora</span></p>
+                    </div>
+                    <div class="about-seal" aria-hidden="true">feito<br>com<br>carinho ♡</div>
+                </div>
+
+                <div class="about-copy reveal">
+                    <p class="eyebrow">Nossa essência</p>
+                    <h2>Não é só gastar energia. É viver um dia que faz bem.</h2>
+                    <p class="lead">A Auzên nasceu da certeza de que cada cão merece ser conhecido pelo nome, respeitado no seu ritmo e cuidado por inteiro.</p>
+                    <p>Por isso, não buscamos lotação. Criamos grupos harmoniosos, combinamos atividade e descanso e observamos de perto o comportamento de cada pequeno.</p>
+                    <blockquote>“Cada escolha da rotina passa pelo bem-estar físico e emocional do seu pet.”</blockquote>
+                    <p class="signature">Ana Lúcia Bonilha Scomparim Balera</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section method" id="como-funciona">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <p class="eyebrow">Primeiros passos</p>
+                        <h2>Uma adaptação tranquila começa antes do primeiro dia.</h2>
+                    </div>
+                    <p>Conhecemos seu pet com calma para entender se a rotina e o grupo combinam com as necessidades dele.</p>
+                </div>
+
+                <ol class="steps-list">
+                    <li class="step-card reveal">
+                        <span class="step-index">1</span>
+                        <div class="step-icon" aria-hidden="true">✦</div>
+                        <h3>Conversa inicial</h3>
+                        <p>Você chama no WhatsApp, conta um pouco sobre seu cão e agenda uma visita ao espaço.</p>
+                    </li>
+                    <li class="step-card reveal">
+                        <span class="step-index">2</span>
+                        <div class="step-icon" aria-hidden="true">⌁</div>
+                        <h3>Avaliação comportamental</h3>
+                        <p>Observamos o temperamento e a interação para promover uma convivência segura.</p>
+                    </li>
+                    <li class="step-card reveal">
+                        <span class="step-index">3</span>
+                        <div class="step-icon" aria-hidden="true">♡</div>
+                        <h3>Início gradual</h3>
+                        <p>Com vacinas e prevenção em dia, seu pequeno começa a adaptação no ritmo certo.</p>
+                    </li>
+                </ol>
+
+                <div class="method-cta reveal">
+                    <p><strong>Quer saber se a Auzên combina com seu pet?</strong> Conte para nós como ele é.</p>
+                    <a class="button" data-cta="method" href="https://wa.me/5515997878345?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20se%20a%20rotina%20da%20Auz%C3%AAn%20%C3%A9%20indicada%20para%20o%20meu%20pet." target="_blank" rel="noopener noreferrer">Conversar no WhatsApp <span aria-hidden="true">↗</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section services" id="servicos">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <p class="eyebrow">Cuidado completo</p>
+                        <h2>Presença, rotina e carinho em cada serviço.</h2>
+                    </div>
+                    <p>Da diversão durante o dia à hospedagem, mantemos o mesmo olhar individual.</p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-card service-primary reveal">
+                        <span class="service-tag">Mais procurado</span>
+                        <div class="service-icon" aria-hidden="true">☼</div>
+                        <h3>Creche para cães</h3>
+                        <p>Socialização acompanhada, brincadeiras, enriquecimento ambiental e pausas de descanso para cães de pequeno porte.</p>
+                        <a href="https://wa.me/5515997878345?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20a%20creche%20da%20Auz%C3%AAn." data-cta="service-daycare" target="_blank" rel="noopener noreferrer">Conhecer a creche <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon" aria-hidden="true">☾</div>
+                        <h3>Hotel pet</h3>
+                        <p>Hospedagem acolhedora e supervisionada para você viajar sabendo que seu pequeno está bem cuidado.</p>
+                        <a href="https://wa.me/5515997878345?text=Ol%C3%A1%21%20Quero%20consultar%20o%20hotel%20pet%20da%20Auz%C3%AAn." data-cta="service-hotel" target="_blank" rel="noopener noreferrer">Consultar hospedagem <span aria-hidden="true">→</span></a>
+                    </article>
+                    <article class="service-card reveal">
+                        <div class="service-icon" aria-hidden="true">✚</div>
+                        <h3>Atendimento veterinário</h3>
+                        <p>Consultas e orientações de saúde realizadas no local pela médica-veterinária responsável pelo espaço.</p>
+                        <a href="https://wa.me/5515997878345?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento%20veterin%C3%A1rio." data-cta="service-vet" target="_blank" rel="noopener noreferrer">Pedir informações <span aria-hidden="true">→</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section routine">
+            <div class="container routine-grid">
+                <div class="routine-copy reveal">
+                    <p class="eyebrow eyebrow-light">Um dia na Auzên</p>
+                    <h2>Movimento quando faz bem. Pausa quando é preciso.</h2>
+                    <p>Uma boa rotina não é uma sequência de estímulos. Alternamos momentos para o corpo, a mente e o descanso.</p>
+                    <ul class="check-list">
+                        <li>Brincadeiras e atividades recreativas</li>
+                        <li>Enriquecimento ambiental</li>
+                        <li>Socialização gentil e acompanhada</li>
+                        <li>Descanso e alimentação individual</li>
+                        <li>Fotos e vídeos para a família</li>
+                    </ul>
+                </div>
+                <div class="routine-gallery reveal" aria-label="Momentos da rotina na Auzên">
+                    <img class="routine-large" src="assets/images/galeria-bolinhas.webp" width="900" height="1200" alt="Cães brincando em uma piscina de bolinhas" loading="lazy" decoding="async">
+                    <img src="assets/images/galeria-descanso.webp" width="900" height="1200" alt="Cães descansando juntos em uma área coberta" loading="lazy" decoding="async">
+                    <img src="assets/images/galeria-sorriso.webp" width="675" height="900" alt="Cão contente durante a rotina na creche" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </section>
+
+        <section class="section gallery-section" id="estrutura">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <div>
+                        <p class="eyebrow">Nossa estrutura</p>
+                        <h2>Espaço para explorar, brincar e simplesmente ser cão.</h2>
+                    </div>
+                    <p>Um recorte de dias reais por aqui. Clique nas fotos para ampliar.</p>
+                </div>
+
+                <div class="gallery-grid reveal" data-gallery>
+                    <button class="gallery-item gallery-tall" type="button" data-full="assets/images/galeria-piscina-bolinhas.webp" data-alt="Cão brincando entre bolinhas coloridas">
+                        <img src="assets/images/galeria-piscina-bolinhas.webp" width="1000" height="1048" alt="Cão brincando entre bolinhas coloridas" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-item gallery-wide" type="button" data-full="assets/images/galeria-quintal.webp" data-alt="Cães explorando juntos a área externa">
+                        <img src="assets/images/galeria-quintal.webp" width="1200" height="675" alt="Cães explorando juntos a área externa" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-item" type="button" data-full="assets/images/galeria-socializacao.webp" data-alt="Três cães socializando ao sol">
+                        <img src="assets/images/galeria-socializacao.webp" width="900" height="1200" alt="Três cães socializando ao sol" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-item" type="button" data-full="assets/images/galeria-piscina.webp" data-alt="Cão brincando em uma piscina rasa">
+                        <img src="assets/images/galeria-piscina.webp" width="675" height="1200" alt="Cão brincando em uma piscina rasa" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-item gallery-wide" type="button" data-full="assets/images/galeria-amigos.webp" data-alt="Dois cães lado a lado na área externa">
+                        <img src="assets/images/galeria-amigos.webp" width="750" height="1000" alt="Dois cães lado a lado na área externa" loading="lazy" decoding="async">
+                    </button>
+                    <button class="gallery-item" type="button" data-full="assets/images/galeria-sol.webp" data-alt="Cães descansando em um feixe de sol">
+                        <img src="assets/images/galeria-sol.webp" width="900" height="1200" alt="Cães descansando em um feixe de sol" loading="lazy" decoding="async">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section faq" id="duvidas">
+            <div class="container faq-grid">
+                <div class="faq-intro reveal">
+                    <p class="eyebrow">Perguntas frequentes</p>
+                    <h2>Antes da primeira visita, é normal ter dúvidas.</h2>
+                    <p>Se não encontrar sua resposta aqui, mande uma mensagem. Gostamos de conhecer cada família desde a primeira conversa.</p>
+                    <a class="text-link" href="https://wa.me/5515997878345?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Auz%C3%AAn." data-cta="faq" target="_blank" rel="noopener noreferrer">Fazer uma pergunta <span aria-hidden="true">↗</span></a>
+                </div>
+
+                <div class="accordion reveal">
+                    <details>
+                        <summary>Quais são os critérios para matrícula?<span aria-hidden="true"></span></summary>
+                        <p>Protocolo vacinal completo — V8/V10, raiva, gripe e giárdia — e controle de ectoparasitas em dia. Também realizamos uma avaliação comportamental antes do início.</p>
+                    </details>
+                    <details>
+                        <summary>Meu cão precisa estar castrado?<span aria-hidden="true"></span></summary>
+                        <p>Para machos acima de seis meses, a castração é obrigatória. Fêmeas não podem frequentar o espaço durante o período de cio.</p>
+                    </details>
+                    <details>
+                        <summary>Como funciona a alimentação?<span aria-hidden="true"></span></summary>
+                        <p>Cada família envia a porção de alimento do seu pet. Ela é servida individualmente, respeitando a rotina e o horário habitual de casa.</p>
+                    </details>
+                    <details>
+                        <summary>A creche atende cães de todos os portes?<span aria-hidden="true"></span></summary>
+                        <p>Nosso espaço tem foco em cães de pequeno porte. A avaliação individual ajuda a confirmar se a dinâmica da turma é adequada para cada pet.</p>
+                    </details>
+                    <details>
+                        <summary>Recebo notícias durante o dia?<span aria-hidden="true"></span></summary>
+                        <p>Sim. Enviamos fotos e vídeos para que você acompanhe momentos da rotina do seu pequeno.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section class="section visit" id="contato">
+            <div class="container visit-card reveal">
+                <div class="visit-copy">
+                    <p class="eyebrow eyebrow-light">Venha conhecer</p>
+                    <h2>A próxima amizade do seu pequeno pode começar aqui.</h2>
+                    <p>Agende uma visita e conheça pessoalmente a estrutura, a rotina e quem vai cuidar dele.</p>
+                    <div class="visit-actions">
+                        <a class="button button-cream" data-cta="final" href="https://wa.me/5515997878345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Auz%C3%AAn%20e%20gostaria%20de%20agendar%20uma%20visita." target="_blank" rel="noopener noreferrer">Agendar uma visita <span aria-hidden="true">↗</span></a>
+                        <a class="text-link text-link-light" href="https://www.google.com/maps/search/?api=1&amp;query=R.%20Dr.%20Fernando%20Costa%2C%20432%2C%20Sorocaba%20SP" target="_blank" rel="noopener noreferrer">Abrir no Google Maps</a>
                     </div>
                 </div>
+                <address class="visit-info">
+                    <div>
+                        <span>Endereço</span>
+                        <strong>R. Dr. Fernando Costa, 432<br>Vila Carvalho — Sorocaba/SP</strong>
+                    </div>
+                    <div>
+                        <span>Horários</span>
+                        <strong>Segunda a sexta<br>7h30 às 19h</strong>
+                    </div>
+                    <div>
+                        <span>Clínica aos sábados</span>
+                        <strong>Sob agendamento</strong>
+                    </div>
+                </address>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a class="brand brand-footer" href="#inicio">
+                    <img src="assets/images/logo-auzen.webp" width="320" height="320" alt="" loading="lazy" decoding="async">
+                    <span>Auzên</span>
+                </a>
+                <p>Creche, hotel e cuidado veterinário para cães de pequeno porte em Sorocaba.</p>
+            </div>
+            <div class="footer-column">
+                <h2>Explore</h2>
+                <a href="#essencia">A Auzên</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#estrutura">Estrutura</a>
+                <a href="depoimentos.html">Depoimentos <small>em breve</small></a>
+            </div>
+            <div class="footer-column">
+                <h2>Fale com a gente</h2>
+                <a href="https://instagram.com/auzenespacopet" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+                <a href="https://wa.me/5515997878345" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+                <a href="mailto:auzenespacoparaanimais@gmail.com">E-mail ↗</a>
             </div>
         </div>
-    </section>
-
-    <section class="reveal">
-        <h2 style="text-align: center;">Perguntas Frequentes</h2>
-        <div class="faq-container">
-            <details>
-                <summary>Quais os critérios para a matrícula?</summary>
-                <div class="faq-content">Protocolo vacinal completo (V8/V10, Raiva, Gripe e Giárdia) e controle de ectoparasitas em dia.</div>
-            </details>
-            <details>
-                <summary>Meu pet precisa estar castrado?</summary>
-                <div class="faq-content">Para machos acima de 6 meses a castração é obrigatória. Fêmeas não podem frequentar no período de cio.</div>
-            </details>
-            <details>
-                <summary>Como funciona a alimentação?</summary>
-                <div class="faq-content">Cada tutor envia a porção de alimento do seu pet, que é servida individualmente respeitando o horário de costume de casa.</div>
-            </details>
-        </div>
-    </section>
-
-    <section class="reveal">
-        <h2 style="text-align: center;">Nossa Estrutura</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item span-2-col span-2-row"><img src="auzen.jpeg" alt="Foto Auzen"></div>
-            <div class="gallery-item span-2-col"><img src="auzen1.jpeg" alt="Foto Auzen 1"></div>
-            <div class="gallery-item"><img src="auzen2.jpeg" alt="Foto Auzen 2"></div>
-            <div class="gallery-item"><img src="auzen3.jpeg" alt="Foto Auzen 3"></div>
-            <div class="gallery-item span-2-col"><img src="auzen4.jpeg" alt="Foto Auzen 4"></div>
-            <div class="gallery-item"><img src="auzen5.jpeg" alt="Foto Auzen 5"></div>
-            <div class="gallery-item span-2-row"><img src="auzen6.jpeg" alt="Foto Auzen 6"></div>
-            <div class="gallery-item"><img src="auzen7.jpeg" alt="Foto Auzen 7"></div>
-            <div class="gallery-item"><img src="auzen8.jpeg" alt="Foto Auzen 8"></div>
-            <div class="gallery-item"><img src="auzen9.jpeg" alt="Foto Auzen 9"></div>
-            <div class="gallery-item"><img src="auzen10.jpeg" alt="Foto Auzen 10"></div>
-            <div class="gallery-item"><img src="auzen11.jpeg" alt="Foto Auzen 11"></div>
-            <div class="gallery-item"><img src="auzen12.jpeg" alt="Foto Auzen 12"></div>
-            <div class="gallery-item"><img src="auzen13.jpeg" alt="Foto Auzen 13"></div>
-            <div class="gallery-item"><img src="auzen14.jpeg" alt="Foto Auzen 14"></div>
-            <div class="gallery-item"><img src="auzen15.jpeg" alt="Foto Auzen 15"></div>
-            <div class="gallery-item"><img src="auzen16.jpeg" alt="Foto Auzen 16"></div>
-            <div class="gallery-item"><img src="auzen17.jpeg" alt="Foto Auzen 17"></div>
-            <div class="gallery-item span-2-row"><img src="auzen18.jpeg" alt="Foto Auzen 18"></div>
-            <div class="gallery-item span-2-col"><img src="auzen19.jpeg" alt="Foto Auzen 19"></div>
-            <div class="gallery-item"><img src="auzen20.jpeg" alt="Foto Auzen 20"></div>
-            <div class="gallery-item span-2-row"><img src="auzen21.jpeg" alt="Foto Auzen 21"></div>
-            <div class="gallery-item"><img src="auzen22.jpeg" alt="Foto Auzen 22"></div>
-            <div class="gallery-item"><img src="auzen23.jpeg" alt="Foto Auzen 23"></div>
-            <div class="gallery-item"><img src="auzen24.jpeg" alt="Foto Auzen 24"></div>
-            <div class="gallery-item"><img src="auzen25.jpeg" alt="Foto Auzen 25"></div>
-            <div class="gallery-item"><img src="auzen26.jpeg" alt="Foto Auzen 26"></div>
-            <div class="gallery-item"><img src="auzen27.jpeg" alt="Foto Auzen 27"></div>
-            <div class="gallery-item"><img src="auzen28.jpeg" alt="Foto Auzen 28"></div>
-            <div class="gallery-item"><img src="auzen29.jpeg" alt="Foto Auzen 29"></div>
-            <div class="gallery-item"><img src="auzen30.jpeg" alt="Foto Auzen 30"></div>
-            <div class="gallery-item"><img src="auzen31.jpeg" alt="Foto Auzen 31"></div>
-            <div class="gallery-item"><img src="auzen32.jpeg" alt="Foto Auzen 32"></div>
-            <div class="gallery-item"><img src="auzen33.jpeg" alt="Foto Auzen 33"></div>
-            <div class="gallery-item"><img src="auzen34.jpeg" alt="Foto Auzen 34"></div>
-            <div class="gallery-item"><img src="auzen35.jpeg" alt="Foto Auzen 35"></div>
-            <div class="gallery-item"><img src="auzen36.jpeg" alt="Foto Auzen 36"></div>
-            <div class="gallery-item"><img src="auzen37.jpeg" alt="Foto Auzen 37"></div>
-            <div class="gallery-item"><img src="auzen38.jpeg" alt="Foto Auzen 38"></div>
-            <div class="gallery-item"><img src="dostozen.jpeg" alt="Foto Dostozen"></div>
-        </div>
-    </section>
-
-    <div id="imageModal" class="modal">
-        <span class="close-modal" onclick="closeGalleryModal()">×</span>
-        <span class="nav-arrow prev-arrow" onclick="changeGalleryImage(-1, event)">❮</span>
-        <img class="modal-content" id="modalImg">
-        <span class="nav-arrow next-arrow" onclick="changeGalleryImage(1, event)">❯</span>
-    </div>
-
-    <footer id="contato">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h4>Auzen</h4>
-                <p>O seu espaço pet exclusivo para pequeno porte.</p>
-                <div class="social-btns">
-                    <a href="https://instagram.com/auzenespacopet" class="btn btn-insta" target="_blank">📸 Siga no Instagram</a>
-                    <a href="https://wa.me/5515997878345" class="btn btn-whats-footer" target="_blank">💬 Mensagem no WhatsApp</a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Onde Estamos</h4>
-                <p>📍 R. Dr. Fernando Costa, 432<br>Vila Carvalho - Sorocaba/SP</p>
-                <p>📧 <a href="mailto:auzenespacoparaanimais@gmail.com">auzenespacoparaanimais@gmail.com</a></p>
-                
-                <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.0436979207086!2d-47.461623824672684!3d-23.494901978846153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c58aa8b66ddb4b%3A0xc6226fffc8e12ec6!2sR.%20Dr.%20Fernando%20Costa%2C%20432%20-%20Vila%20Carvalho%2C%20Sorocaba%20-%20SP%2C%2018060-030!5e0!3m2!1spt-BR!2sbr!4v1713028345678!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Horários</h4>
-                <p>Segunda a Sexta: 07:30 às 19:00</p>
-                <p>Sábado (Clínica): Sob agendamento</p>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 60px; opacity: 0.5; font-size: 0.8rem;">
-            © 2026 Auzên - Espaço para Animais. Todos os direitos reservados.
+        <div class="container footer-bottom">
+            <p>© <span data-year>2026</span> Auzên — Espaço para Animais.</p>
+            <p>Feito com cuidado em Sorocaba.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/5515997878345" class="wa-float" target="_blank">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    <a class="whatsapp-float" data-cta="floating" href="https://wa.me/5515997878345?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Auz%C3%AAn%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" aria-label="Conversar com a Auzên pelo WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.47-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26A9.89 9.89 0 0 1 12.05 2c2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.44 9.89-9.88 9.89M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.23-6.16-3.47-8.41Z"/></svg>
+        <span>Fale com a gente</span>
     </a>
 
-    <script>
-        let currentImageIndex = 0;
-        const galleryImages = [];
+    <dialog class="gallery-dialog" data-dialog aria-label="Visualização ampliada da galeria">
+        <button class="dialog-close" type="button" data-dialog-close aria-label="Fechar imagem">×</button>
+        <button class="dialog-arrow dialog-prev" type="button" data-dialog-prev aria-label="Imagem anterior">‹</button>
+        <img data-dialog-image src="" alt="">
+        <button class="dialog-arrow dialog-next" type="button" data-dialog-next aria-label="Próxima imagem">›</button>
+    </dialog>
 
-        document.addEventListener("DOMContentLoaded", () => {
-            // Inicializar ícones Lucide
-            lucide.createIcons();
-
-            // Configurar Animações Reveal de Scroll
-            const revealElements = document.querySelectorAll('.reveal');
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                root: null,
-                threshold: 0.1,
-                rootMargin: "0px 0px -50px 0px"
-            });
-            
-            revealElements.forEach(el => revealObserver.observe(el));
-
-            // Varre as fotos da galeria e prepara a lista automaticamente
-            const imgs = document.querySelectorAll('.gallery-grid img');
-            imgs.forEach((img, index) => {
-                galleryImages.push(img.src);
-                img.onclick = function() {
-                    openGalleryModal(index);
-                };
-            });
-        });
-
-        function openGalleryModal(index) {
-            currentImageIndex = index;
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImg");
-            modal.style.display = "flex";
-            modalImg.src = galleryImages[currentImageIndex];
-        }
-
-        function closeGalleryModal() {
-            document.getElementById("imageModal").style.display = "none";
-        }
-
-        function changeGalleryImage(step, event) {
-            if(event) event.stopPropagation(); // Impede de fechar a janela ao clicar na seta
-            currentImageIndex += step;
-            
-            // Faz o loop infinito
-            if (currentImageIndex >= galleryImages.length) {
-                currentImageIndex = 0;
-            } else if (currentImageIndex < 0) {
-                currentImageIndex = galleryImages.length - 1;
-            }
-            
-            document.getElementById("modalImg").src = galleryImages[currentImageIndex];
-        }
-
-        // Fechar ao clicar fora da imagem
-        window.onclick = function(event) {
-            const modal = document.getElementById("imageModal");
-            if (event.target === modal) {
-                closeGalleryModal();
-            }
-        };
-
-        // Suporte a teclas do teclado (Esc e Setas)
-        document.addEventListener('keydown', function(event) {
-            const modal = document.getElementById("imageModal");
-            if (modal.style.display === "flex") {
-                if (event.key === "ArrowLeft") {
-                    changeGalleryImage(-1);
-                } else if (event.key === "ArrowRight") {
-                    changeGalleryImage(1);
-                } else if (event.key === "Escape") {
-                    closeGalleryModal();
-                }
-            }
-        });
-    </script>
-
+    <script src="assets/js/main.js" defer></script>
 </body>
 </html>
