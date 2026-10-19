@@ -5,10 +5,11 @@ Site institucional estático da Auzên — Espaço para Animais, em Sorocaba/SP.
 ## Estrutura
 
 - `index.html`: página principal.
+- `clinica-veterinaria.html`: página da clínica veterinária (cães e gatos, Vila Carvalho, sábados sob agendamento), com FAQ e dados estruturados `VeterinaryCare`. Está no menu, no card "Atendimento veterinário" e no sitemap.
 - `depoimentos.html`: página provisória, com `noindex`, até a publicação de relatos reais.
 - `assets/css/styles.css`: identidade visual e responsividade.
 - `assets/js/main.js`: menu móvel, animações, galeria e eventos de CTA.
-- `assets/images/`: imagens WebP otimizadas usadas no site.
+- `assets/images/`: imagens WebP otimizadas usadas no site. As fotos originais (JPEG) não ficam no repositório; adicione apenas versões otimizadas que forem de fato usadas nas páginas.
 
 ## Visualização local
 
@@ -16,10 +17,11 @@ Abra `index.html` no navegador ou inicie um servidor estático na raiz do projet
 
 ## Pendências antes da publicação definitiva
 
-1. Confirmar CEP e horários oficiais e manter os mesmos dados no site e no Perfil da Empresa no Google.
+1. Incluir o CEP no site e no JSON-LD quando confirmado, e manter endereço e horários iguais no Perfil da Empresa no Google (creche: segunda a sexta, 7h30 às 19h; clínica: segunda a sexta, 8h às 18h, sábados sob agendamento).
 2. Conectar Google Analytics ou Tag Manager. Os cliques já geram o evento `auzen_cta_click` no `dataLayer`.
 3. Substituir a página provisória de depoimentos apenas por relatos reais e autorizados; depois remover o `noindex` e incluí-la no sitemap.
 4. Cadastrar `https://auzenpet.com.br/sitemap.xml` no Google Search Console.
+5. Serviços da clínica confirmados: consultas, vacinação, exames no local, orientações de saúde, receitas e pedidos de exames; atende quem não é cliente da creche. Não oferece castração, microchip nem urgência.
 
 ## Conteúdo e SEO local
 
