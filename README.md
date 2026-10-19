@@ -17,11 +17,11 @@ Abra `index.html` no navegador ou inicie um servidor estático na raiz do projet
 
 ## Pendências antes da publicação definitiva
 
-1. Confirmar CEP e horários oficiais (inclusive o horário da clínica em dias úteis e o que vale para os sábados sob agendamento) e manter os mesmos dados no site, no JSON-LD de `index.html` e `clinica-veterinaria.html` e no Perfil da Empresa no Google.
+1. Incluir o CEP no site e no JSON-LD quando confirmado, e manter endereço e horários iguais no Perfil da Empresa no Google (creche: segunda a sexta, 7h30 às 19h; clínica: segunda a sexta, 8h às 18h, sábados sob agendamento).
 2. Conectar Google Analytics ou Tag Manager. Os cliques já geram o evento `auzen_cta_click` no `dataLayer`.
 3. Substituir a página provisória de depoimentos apenas por relatos reais e autorizados; depois remover o `noindex` e incluí-la no sitemap.
 4. Cadastrar `https://auzenpet.com.br/sitemap.xml` no Google Search Console.
-5. Confirmar com a responsável técnica outros serviços da clínica (por exemplo vacinação, exames realizados no local, coleta de material, cirurgias, castração, atendimento de urgência, microchipagem, atestados de saúde para viagem) antes de incluí-los em `clinica-veterinaria.html`. Hoje a página lista só consultas, orientações de saúde, receitas e pedidos de exames.
+5. Serviços da clínica confirmados: consultas, vacinação, exames no local, orientações de saúde, receitas e pedidos de exames; atende quem não é cliente da creche. Não oferece castração, microchip nem urgência.
 
 ## Conteúdo e SEO local
 
