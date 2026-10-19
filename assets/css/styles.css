@@ -1349,6 +1349,111 @@ h3 {
     background: var(--purple);
 }
 
+.main-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+}
+
+.coming-nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.hero-clinic {
+    min-height: 0;
+    padding-bottom: 150px;
+}
+
+.hero-clinic h1 {
+    font-size: clamp(2.8rem, 5.4vw, 5.4rem);
+}
+
+.hero-clinic .hero-photo {
+    object-position: center 40%;
+}
+
+.clinic-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.clinic-services-grid .service-card {
+    min-height: 0;
+    padding: 32px;
+}
+
+.clinic-services-grid .service-icon {
+    margin-bottom: 44px;
+}
+
+.clinic-services-grid .service-card h3 {
+    font-size: 1.6rem;
+}
+
+.clinic-services-grid .service-card p {
+    margin-bottom: 0;
+}
+
+.clinic-saturday {
+    background: var(--purple-soft);
+}
+
+.clinic-vet {
+    background: var(--cream);
+}
+
+.clinic-credential {
+    position: relative;
+    padding: clamp(36px, 5vw, 56px);
+    border-radius: var(--radius-md);
+    background: var(--purple);
+    box-shadow: var(--shadow);
+    color: white;
+    transform: rotate(-2deg);
+}
+
+.clinic-credential-label {
+    display: block;
+    margin-bottom: 18px;
+    color: var(--mint);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.clinic-credential-number {
+    display: block;
+    margin-bottom: 26px;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    letter-spacing: -0.03em;
+    line-height: 1.05;
+}
+
+.clinic-credential p {
+    margin: 0;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.35;
+}
+
+.clinic-credential p span {
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.8rem;
+    font-style: normal;
+}
+
+.visit-info a {
+    color: inherit;
+    text-underline-offset: 4px;
+}
+
 @media (max-width: 1060px) {
     .main-nav {
         gap: 16px;
@@ -1376,6 +1481,10 @@ h3 {
     .service-primary {
         grid-column: span 2;
         min-height: 340px;
+    }
+
+    .clinic-services-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1434,6 +1543,10 @@ h3 {
         position: relative;
         z-index: 2;
         min-height: 64px;
+        background: rgba(255, 248, 238, 0.97);
+        /* backdrop-filter faria o menu fixo ficar preso dentro do cabeçalho */
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
     }
 
     .hero {
@@ -1547,6 +1660,14 @@ h3 {
         font-size: 0.76rem;
     }
 
+    .coming-nav {
+        gap: 14px;
+    }
+
+    .clinic-credential {
+        transform: none;
+    }
+
     .brand img {
         width: 40px;
         height: 40px;
@@ -1607,7 +1728,8 @@ h3 {
         flex-direction: column;
     }
 
-    .services-grid {
+    .services-grid,
+    .clinic-services-grid {
         grid-template-columns: 1fr;
     }
 

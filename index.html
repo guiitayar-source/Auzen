@@ -35,15 +35,16 @@
     {
       "@context": "https://schema.org",
       "@type": ["LocalBusiness", "VeterinaryCare"],
+      "@id": "https://auzenpet.com.br/#auzen",
       "name": "Auzên — Espaço para Animais",
-      "description": "Creche e hotel para cães de pequeno porte em Sorocaba, com supervisão veterinária.",
+      "description": "Creche e hotel para cães de pequeno porte em Sorocaba, com supervisão veterinária, e clínica veterinária no local para cães e gatos na Vila Carvalho. A clínica também atende aos sábados, sob agendamento.",
       "url": "https://auzenpet.com.br/",
       "image": "https://auzenpet.com.br/assets/images/hero-dog.webp",
       "telephone": "+55 15 99787-8345",
       "email": "auzenespacoparaanimais@gmail.com",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Rua Dr. Fernando Costa, 432",
+        "streetAddress": "Rua Dr. Fernando Costa, 432 - Vila Carvalho",
         "addressLocality": "Sorocaba",
         "addressRegion": "SP",
         "addressCountry": "BR"
@@ -54,6 +55,19 @@
         "opens": "07:30",
         "closes": "19:00"
       }],
+      "areaServed": {
+        "@type": "City",
+        "name": "Sorocaba"
+      },
+      "department": {
+        "@type": "VeterinaryCare",
+        "@id": "https://auzenpet.com.br/clinica-veterinaria.html#clinica",
+        "name": "Auzên — Espaço para Animais",
+        "alternateName": "Clínica veterinária Auzên",
+        "description": "Atendimento veterinário no local para cães e gatos na Vila Carvalho, em Sorocaba/SP. Aos sábados, atendimento sob agendamento.",
+        "url": "https://auzenpet.com.br/clinica-veterinaria.html",
+        "telephone": "+55 15 99787-8345"
+      },
       "sameAs": ["https://instagram.com/auzenespacopet"]
     }
     </script>
@@ -77,6 +91,7 @@
                 <a href="#essencia">A Auzên</a>
                 <a href="#como-funciona">Como funciona</a>
                 <a href="#servicos">Serviços</a>
+                <a href="clinica-veterinaria.html">Clínica</a>
                 <a href="#estrutura">Estrutura</a>
                 <a href="#duvidas">Dúvidas</a>
             </nav>
@@ -228,8 +243,8 @@
                     <article class="service-card reveal">
                         <div class="service-icon" aria-hidden="true">✚</div>
                         <h3>Atendimento veterinário</h3>
-                        <p>Consultas e orientações de saúde realizadas no local pela médica-veterinária responsável pelo espaço.</p>
-                        <a href="https://wa.me/5515997878345?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20atendimento%20veterin%C3%A1rio." data-cta="service-vet" target="_blank" rel="noopener noreferrer">Pedir informações <span aria-hidden="true">→</span></a>
+                        <p>Consultas e orientações de saúde para cães e gatos, realizadas no local pela médica-veterinária responsável pelo espaço.</p>
+                        <a href="clinica-veterinaria.html" data-cta="service-vet">Conhecer a clínica <span aria-hidden="true">→</span></a>
                     </article>
                 </div>
             </div>
@@ -367,6 +382,7 @@
                 <a href="#essencia">A Auzên</a>
                 <a href="#como-funciona">Como funciona</a>
                 <a href="#servicos">Serviços</a>
+                <a href="clinica-veterinaria.html">Clínica veterinária</a>
                 <a href="#estrutura">Estrutura</a>
                 <a href="depoimentos.html">Depoimentos <small>em breve</small></a>
             </div>
